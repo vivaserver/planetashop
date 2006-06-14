@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- (c)2005,2006 por Cristian R. Arroyo [cristian.arroyo#gmail.com] / Argentina -->
+<html>
+  <head>
+    <title>
+      Planeta Linux Shop <%= @params['country'].upcase %> : El shopping de recursos Linux
+    </title>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="EXPIRES"      content="0">
+    <meta name="RESOURCE-TYPE" content="DOCUMENT">
+    <meta name="DISTRIBUTION"  content="GLOBAL">
+    <meta name="AUTHOR"        content="Planeta Linux Shop">
+    <meta name="COPYRIGHT"     content="Copyright (c) 2006 by Planeta Linux Shop">
+    <meta name="DESCRIPTION"   content="El shopping de recursos Linux">
+    <meta name="KEYWORDS"      content="linux, download, cd, dvd, shop, descargar, bajar">
+    <meta name="ROBOTS"        content="INDEX, FOLLOW">
+    <meta name="REVISIT-AFTER" content="1 DAYS">
+    <meta name="RATING"        content="GENERAL">
+    <meta name="GENERATOR"     content="Planeta Shop ML 0.1r0r">
+    <link rel="shortcut icon"  href="/images/favicon.ico">
+    <%= stylesheet_link_tag 'layout' %>
+    <%= stylesheet_link_tag 'style' %>
+    <%= stylesheet_auto_link_tags %>
+    <%= javascript_include_tag 'sitewide.js' %>
+    <script language="javascript" type="text/javascript">
+        <!--
+        if (top != self) top.location=self.location;
+        // -->
+    </script>
+  </head>
+  <body>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    _uacct = "UA-83052-3";
+    urchinTracker();
+    </script>
+    <center>
+      <p>
+        <script type="text/javascript"><!--
+        google_ad_client = "pub-4208681256971787";
+        google_ad_width = 728;
+        google_ad_height = 15;
+        google_ad_format = "728x15_0ads_al_s";
+        google_ad_channel ="";
+        google_color_border = "A9BED9";
+        google_color_bg = "EAEDF4";
+        google_color_link = "006699";
+        google_color_url = "006699";
+        google_color_text = "333333";
+        //--></script>
+        <script type="text/javascript"
+          src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+      </p>
+      <div id="container">
+        <div id="header-container">
+          <div id="header">
+            <h1>&nbsp;</h1>
+            <p><%= image_tag 'help.gif', :align => 'middle' %> &nbsp; <b>Planeta Linux Shop</b> es la respuesta de <a href="http://www.planetalinux.com.ar/">Planeta Linux Argentina</a> a la cl&aacute;sica pregunta <i>"&iquest;D&oacute;nde compro Linux?"</i><br>&iexcl;Elije tu pa&iacute;s y encuentra la mejor oferta!</p>
+          </div>
+        </div>
+        <div id="content">
+          <%= @content_for_layout -%>
+

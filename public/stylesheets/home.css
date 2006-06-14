@@ -1,0 +1,85 @@
+#mlnav {
+  clear: both;
+  margin: 0.75em 0;
+  font-weight: bold;
+}
+#mlnav a {
+  font-weight: normal;
+}
+
+#mldate {
+  clear: both;
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+#content .item1 {
+  float: left;
+  width: 175px;
+  height: 161px;
+  text-align: center;
+  background-color: #fff;
+  background-image: url(/images/bg_shop_item.gif);
+  background-repeat: no-repeat;
+}
+#content .item2 {
+  float: right;
+  width: 175px;
+  height: 161px;
+  text-align: center;
+  background-color: #fff;
+  background-image: url(/images/bg_shop_item.gif);
+  background-repeat: no-repeat;
+}
+#content .item3 {
+  float: right;
+  width: 175px;
+  height: 161px;
+  text-align: center;
+  margin-right: 17px;
+  background-color: #fff;
+  background-image: url(/images/bg_shop_item.gif);
+  background-repeat: no-repeat;
+}
+#content .item4 {
+  float: right;
+  clear: none;
+  width: 175px;
+  height: 161px;
+  text-align: center;
+  margin-right: 17px;
+  background-color: #fff;
+  background-image: url(/images/bg_shop_item.gif);
+  background-repeat: no-repeat;
+}
+
+#distros {
+  width: 770px;
+  margin: 10px 0 5px 0;
+}
+#distros dl {
+  width: 770px;
+  margin: 0 0 20px 0;
+  background-color: #fff;
+  background-image: url(/images/rc_bot.gif);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+#distros dt {
+  padding: 10px;
+  font-weight: bold;
+  background-image: url(/images/rc_top.gif);
+  background-repeat: no-repeat;
+  background-position: top;
+}
+#distros dd {
+  padding: 10px 0;
+}
+#distros img {
+  float: left;
+}
+#distros table {
+  background-image: url(/images/folder_cd.gif);
+  background-repeat: no-repeat;
+  background-position: right center;
+}

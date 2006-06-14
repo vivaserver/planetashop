@@ -1,0 +1,159 @@
+body {
+  font-family: Tahoma, Verdana, Helvetica;
+  font-size: 11px;
+  background: #ecf0f6;
+  margin: 6px;
+  color: #000;
+}
+
+a:link, a:active, a:visited, a.postlink {
+  color: #006699;
+  text-decoration: none;
+}
+a:hover {
+  color: #dd6900;
+}
+
+h1 {
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+input, select, textarea {
+  font-size: 11px;
+  border: 1px solid #b3bacf;
+}
+
+td {
+  font-family: Tahoma, Verdana, Helvetica;
+  text-align: left;
+  font-size: 11px;
+}
+
+#container {
+  background-color: #fff;
+}
+
+#header-container {
+  height: 110px;
+  font-size: 10px;
+  background-image: url(/images/bg_shop_head.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#header h1 {
+  float: left;
+  width: 245px;
+  height: 110px;
+  background-image: url(/images/logo.gif);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+#header p {
+  float: right;
+  color: #808080;
+  width: 330px;
+  border: 2px solid #fff;
+  margin: 15px 60px 0 0;
+  padding: 8px;
+  font-size: 11px;
+  background: #FFF5D9;
+  line-height: 175%;
+}
+
+ul#nav {
+  text-align: right;
+}
+ul#nav input {
+  color: #2c69a9;
+  background-image: url(/images/bg_shadow.png);
+  background-repeat: repeat-x;
+}
+
+ul#button li a {
+  text-decoration: none;
+  background-image: url(/images/bg_box.gif);
+  background-repeat: repeat-x;
+}
+ul#button li a:hover {
+  color: #fff;
+  background-image: url(/images/bg_box2.gif);
+  background-repeat: repeat-x;
+}
+
+#content {
+}
+
+#navigator {
+  text-align: center;
+}
+#navigator li {
+  display: inline;
+  margin: 0 1em;
+}
+
+
+#box {
+  background-color: #EAEDF4;
+  background-image: url(/images/bg_box.gif);
+  background-repeat: repeat-x;
+}
+
+#article {
+  background: url(/images/bg_article.gif) no-repeat 0 0;
+}
+#article img {
+  margin-right: 5px;
+}
+#article p {
+  clear: left;
+  text-align: center;
+  font-weight: bolder;
+}
+
+
+#message {
+  border: 1px dotted #006699;
+  text-align: center;
+}
+
+#pager {
+  text-align: center;
+  padding: 0.5em 0;
+  margin: 0.5em 0;
+  clear: both;
+}
+
+#footer {
+  color: #fff;
+  height: 38px;
+  text-align: left;
+  background-image: url(/images/bg_shop_foot.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#footer a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+#footer a:hover {
+  text-decoration: underline;
+}
+#footer ul {
+  padding-top: 12px;
+  padding-left: 10px;
+}
+#footer li {
+  margin: 0 1em;
+}
+
+#credits {
+  clear: both;
+  font-size: 10px;
+}
+#credits ul {
+  margin: 5px 0;
+}
