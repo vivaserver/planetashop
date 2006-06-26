@@ -5,34 +5,34 @@
 #   (on OS X: gem install mysql -- --include=/usr/local/lib)
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
-development:
-  adapter: mysql
-  database: planetashop_devel
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+ # development:
+ #   adapter: mysql
+ #   database: phpnuke_devel
+ #   username: root
+ #   password:
+ #   socket: /var/run/mysqld/mysqld.sock
 
-  # Connect on a TCP socket.  If omitted, the adapter will connect on the
-  # domain socket given by socket instead.
-  #host: localhost
-  #port: 3306
-  
+ # Connect on a TCP socket.  If omitted, the adapter will connect on the
+ # domain socket given by socket instead.
+ #host: localhost
+ #port: 3306
+
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
 # Do not set this db to the same as development or production.
-test:
-  adapter: mysql
-  database: planetashop_test
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+ # test:
+ #   adapter: mysql
+ #   database: phpnuke_test
+ #   username: root
+ #   password:
+ #   socket: /var/run/mysqld/mysqld.sock
 
-production:
-  adapter: mysql
-  database: planetashop_prod
-  username: root
-  password: 
-  socket: /var/run/mysqld/mysqld.sock
+ # production:
+ #   adapter: mysql
+ #   database: phpnuke_prod
+ #   username: root
+ #   password:
+ #   socket: /var/run/mysqld/mysqld.sock
 
 
 # PostgreSQL versions 7.4 - 8.1
@@ -41,11 +41,11 @@ production:
 #   gem install postgres
 # or use the pure-Ruby bindings on Windows:
 #   gem install postgres-pr
-postgresql_example:
-  adapter: postgresql
-  database: planetashop_development
-  username: planetashop
-  password:
+ # postgresql_example:
+ #   adapter: postgresql
+ #   database: phpnuke_development
+ #   username: phpnuke
+ #   password:
 
   # Connect on a TCP socket.  Omitted by default since the client uses a
   # domain socket that doesn't need configuration.
@@ -67,19 +67,26 @@ postgresql_example:
 
 # SQLite version 2.x
 #   gem install sqlite-ruby
-sqlite_example:
-  adapter: sqlite
-  database: db/development.sqlite2
+# sqlite_example:
+#   adapter: sqlite
+#   database: db/development.sqlite2
 
 
 # SQLite version 3.x
 #   gem install sqlite3-ruby
-sqlite3_example:
+# sqlite3_example:
+development:
   adapter: sqlite3
   database: db/development.sqlite3
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
 
 
 # In-memory SQLite 3 database.  Useful for tests.
-sqlite3_in_memory_example:
-  adapter: sqlite3
-  database: ":memory:"
+ # sqlite3_in_memory_example:
+ #   adapter: sqlite3
+ #   database: ":memory:"

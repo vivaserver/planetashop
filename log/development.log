@@ -1,0 +1,216 @@
+  [4;36;1mSQL (0.072498)[0m   [0;1mCREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.037499)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000782)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;36;1mSQL (0.043607)[0m   [0;1mCREATE TABLE stories ("id" INTEGER PRIMARY KEY NOT NULL, "target_id" integer, "title" varchar(255) NOT NULL, "url" varchar(255) NOT NULL, "time" datetime NOT NULL, "intro" text NOT NULL, "body" text, "notes" text, "image_url" varchar(255), "clicks" integer, "is_not_in_home" integer(2) DEFAULT 0, "is_sticky" integer(2) DEFAULT 0, "is_unpublised" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.032808)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000702)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;35;1mSQL (0.032880)[0m   [0mCREATE TABLE targets ("id" INTEGER PRIMARY KEY NOT NULL, "category_id" integer, "name" varchar(255) NOT NULL, "title" varchar(255) NOT NULL, "intro" text, "body" text, "notes" text, "limit" integer, "url_target" text NOT NULL, "url_base" text, "image_base" text, "regexp_title" text NOT NULL, "regexp_url" text NOT NULL, "regexp_date" text, "regexp_time" text, "regexp_intro" text NOT NULL, "regexp_body" text, "regexp_body_date" text, "regexp_body_time" text, "regexp_notes" text, "regexp_image" text, "title_pre" text, "title_post" text, "url_pre" text, "url_post" text, "last_checked" datetime, "parse_errors" integer DEFAULT 0, "is_disabled" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.041477)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000542)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000783)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000465)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000561)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000419)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.075470)[0m   [0;1mDROP TABLE targets[0m
+  [4;35;1mSQL (0.047327)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000528)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.048472)[0m   [0mDROP TABLE stories[0m
+  [4;36;1mSQL (0.041214)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000704)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.072768)[0m   [0mCREATE TABLE stories ("id" INTEGER PRIMARY KEY NOT NULL, "target_id" integer, "title" varchar(255) NOT NULL, "url" varchar(255) NOT NULL, "time" datetime NOT NULL, "intro" text NOT NULL, "body" text, "notes" text, "image_url" varchar(255), "clicks" integer, "is_not_in_home" integer(2) DEFAULT 0, "is_sticky" integer(2) DEFAULT 0, "is_unpublised" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.055580)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000558)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.061899)[0m   [0;1mCREATE TABLE targets ("id" INTEGER PRIMARY KEY NOT NULL, "category_id" integer, "name" varchar(255) NOT NULL, "title" varchar(255) NOT NULL, "intro" text, "body" text, "notes" text, "limit" integer, "url_target" text NOT NULL, "url_base" text, "image_base" text, "regexp_title" text NOT NULL, "regexp_url" text NOT NULL, "regexp_date" text, "regexp_time" text, "regexp_intro" text NOT NULL, "regexp_body" text, "regexp_body_date" text, "regexp_body_time" text, "regexp_notes" text, "regexp_image" text, "title_pre" text, "title_post" text, "url_pre" text, "url_post" text, "last_checked" datetime, "parse_errors" integer DEFAULT 0, "is_disabled" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.055665)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000902)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mSQL (0.007999)[0m   [0mPRAGMA table_info(targets)[0m
+  [4;36;1mSQL (0.000958)[0m   [0;1mINSERT INTO targets ("name", "regexp_intro", "title_post", "intro", "parse_errors", "updated_at", "url_base", "url_pre", "url_target", "body", "regexp_body", "regexp_body_time", "regexp_title", "title", "image_base", "regexp_body_date", "regexp_notes", "notes", "regexp_image", "url_post", "category_id", "is_disabled", "title_pre", "regexp_time", "regexp_url", "last_checked", "regexp_date", "limit", "created_at") VALUES('distrowatch', '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src=', NULL, NULL, 0, '2006-06-23 23:11:44', NULL, NULL, 'http://distrowatch.com/index.php?dataspan=4', NULL, '<th class="Info">Mirrors de Descarga<\/th>\s+<td class="Info">\s*<a href="(\S+)">', NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href=".+">(.+)<\/a><\/td>', 'DistroWatch Monthly Top', 'http://distrowatch.com/images/icon-large/', NULL, NULL, NULL, '<td style="text-align: left; border: 0px; width: 20%"><img src="\.\/images\/icon-large\/(.+)" border="0"', '&language=ES', NULL, 0, NULL, NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>', NULL, NULL, 10, '2006-06-23 23:11:44')[0m
+  [4;35;1mSQL (0.049777)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000716)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000454)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000586)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mTarget Load (0.001792)[0m   [0mSELECT * FROM targets WHERE (targets.id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.008744)[0m   [0;1mPRAGMA table_info(targets)[0m
+  [4;35;1mTarget Destroy (0.001121)[0m   [0m DELETE FROM targets
+ WHERE id = 1
+[0m
+  [4;36;1mSQL (0.421244)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000601)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.075479)[0m   [0;1mDROP TABLE targets[0m
+  [4;35;1mSQL (0.064267)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000955)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.075070)[0m   [0mDROP TABLE stories[0m
+  [4;36;1mSQL (0.063904)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000764)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.089249)[0m   [0mCREATE TABLE stories ("id" INTEGER PRIMARY KEY NOT NULL, "target_id" integer, "title" varchar(255) NOT NULL, "url" varchar(255) NOT NULL, "time" datetime NOT NULL, "intro" text NOT NULL, "body" text, "notes" text, "image_url" varchar(255), "clicks" integer, "is_not_in_home" integer(2) DEFAULT 0, "is_sticky" integer(2) DEFAULT 0, "is_unpublised" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.055634)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000564)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.061644)[0m   [0;1mCREATE TABLE targets ("id" INTEGER PRIMARY KEY NOT NULL, "category_id" integer, "name" varchar(255) NOT NULL, "title" varchar(255) NOT NULL, "intro" text, "body" text, "notes" text, "limit" integer, "url_target" text NOT NULL, "url_base" text, "image_base" text, "regexp_title" text NOT NULL, "regexp_url" text NOT NULL, "regexp_date" text, "regexp_time" text, "regexp_intro" text NOT NULL, "regexp_body" text, "regexp_body_date" text, "regexp_body_time" text, "regexp_notes" text, "regexp_image" text, "title_pre" text, "title_post" text, "url_pre" text, "url_post" text, "last_checked" datetime, "parse_errors" integer DEFAULT 0, "is_disabled" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.055718)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000590)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mSQL (0.007499)[0m   [0mPRAGMA table_info(targets)[0m
+  [4;36;1mSQL (0.000759)[0m   [0;1mINSERT INTO targets ("name", "regexp_intro", "title_post", "intro", "parse_errors", "updated_at", "url_base", "url_pre", "url_target", "body", "regexp_body", "regexp_body_time", "regexp_title", "title", "image_base", "regexp_body_date", "regexp_notes", "notes", "regexp_image", "url_post", "category_id", "is_disabled", "title_pre", "regexp_time", "regexp_url", "last_checked", "regexp_date", "limit", "created_at") VALUES('distrowatch', '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src=', NULL, NULL, 0, '2006-06-23 23:17:10', NULL, NULL, 'http://distrowatch.com/index.php?dataspan=4', NULL, NULL, NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href=".+">(.+)<\/a><\/td>', 'DistroWatch Monthly Top', NULL, NULL, NULL, NULL, NULL, '&language=ES', NULL, 0, NULL, NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>', NULL, NULL, 10, '2006-06-23 23:17:10')[0m
+  [4;35;1mSQL (0.058072)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000660)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000448)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000685)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mTarget Load (0.001889)[0m   [0mSELECT * FROM targets WHERE (targets.id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.007252)[0m   [0;1mPRAGMA table_info(targets)[0m
+  [4;35;1mTarget Destroy (0.001028)[0m   [0m DELETE FROM targets
+ WHERE id = 1
+[0m
+  [4;36;1mSQL (0.049385)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000565)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.050570)[0m   [0;1mDROP TABLE targets[0m
+  [4;35;1mSQL (0.055826)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000533)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.050572)[0m   [0mDROP TABLE stories[0m
+  [4;36;1mSQL (0.064125)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000884)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.079262)[0m   [0mCREATE TABLE stories ("id" INTEGER PRIMARY KEY NOT NULL, "target_id" integer, "title" varchar(255) NOT NULL, "url" varchar(255) NOT NULL, "time" datetime NOT NULL, "intro" text NOT NULL, "body" text, "notes" text, "image_url" varchar(255), "clicks" integer, "is_not_in_home" integer(2) DEFAULT 0, "is_sticky" integer(2) DEFAULT 0, "is_unpublised" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.055646)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000558)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.053429)[0m   [0;1mCREATE TABLE targets ("id" INTEGER PRIMARY KEY NOT NULL, "category_id" integer, "name" varchar(255) NOT NULL, "title" varchar(255) NOT NULL, "intro" text, "body" text, "notes" text, "limit" integer, "url_target" text NOT NULL, "url_base" text, "image_base" text, "regexp_title" text NOT NULL, "regexp_url" text NOT NULL, "regexp_date" text, "regexp_time" text, "regexp_intro" text NOT NULL, "regexp_body" text, "regexp_body_date" text, "regexp_body_time" text, "regexp_notes" text, "regexp_image" text, "title_pre" text, "title_post" text, "url_pre" text, "url_post" text, "last_checked" datetime, "parse_errors" integer DEFAULT 0, "is_disabled" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.055624)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000557)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mSQL (0.007715)[0m   [0mPRAGMA table_info(targets)[0m
+  [4;36;1mSQL (0.000788)[0m   [0;1mINSERT INTO targets ("name", "regexp_intro", "title_post", "intro", "parse_errors", "updated_at", "url_base", "url_pre", "url_target", "body", "regexp_body", "regexp_body_time", "regexp_title", "title", "image_base", "regexp_body_date", "regexp_notes", "notes", "regexp_image", "url_post", "category_id", "is_disabled", "title_pre", "regexp_time", "regexp_url", "last_checked", "regexp_date", "limit", "created_at") VALUES('distrowatch', '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src=', NULL, NULL, 0, '2006-06-23 23:19:29', 'http://distrowatch.com/table.php?distribution=', NULL, 'http://distrowatch.com/index.php?dataspan=4', NULL, NULL, NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href=".+">(.+)<\/a><\/td>', 'DistroWatch Monthly Top', NULL, NULL, NULL, NULL, NULL, '&language=ES', NULL, 0, NULL, NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>', NULL, NULL, 10, '2006-06-23 23:19:29')[0m
+  [4;35;1mSQL (0.058093)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000713)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000449)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000555)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mTarget Load (0.001788)[0m   [0mSELECT * FROM targets WHERE (targets.id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.007552)[0m   [0;1mPRAGMA table_info(targets)[0m
+  [4;35;1mTarget Destroy (0.001144)[0m   [0m DELETE FROM targets
+ WHERE id = 1
+[0m
+  [4;36;1mSQL (0.049680)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000610)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.058786)[0m   [0;1mDROP TABLE targets[0m
+  [4;35;1mSQL (0.047487)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000527)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.067174)[0m   [0mDROP TABLE stories[0m
+  [4;36;1mSQL (0.055818)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000691)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.082002)[0m   [0mCREATE TABLE stories ("id" INTEGER PRIMARY KEY NOT NULL, "target_id" integer, "title" varchar(255) NOT NULL, "url" varchar(255) NOT NULL, "time" datetime NOT NULL, "intro" text NOT NULL, "body" text, "notes" text, "image_url" varchar(255), "clicks" integer, "is_not_in_home" integer(2) DEFAULT 0, "is_sticky" integer(2) DEFAULT 0, "is_unpublised" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.047337)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000704)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.053507)[0m   [0;1mCREATE TABLE targets ("id" INTEGER PRIMARY KEY NOT NULL, "category_id" integer, "name" varchar(255) NOT NULL, "title" varchar(255) NOT NULL, "intro" text, "body" text, "notes" text, "limit" integer, "url_target" text NOT NULL, "url_base" text, "image_base" text, "regexp_title" text NOT NULL, "regexp_url" text NOT NULL, "regexp_date" text, "regexp_time" text, "regexp_intro" text NOT NULL, "regexp_body" text, "regexp_body_date" text, "regexp_body_time" text, "regexp_notes" text, "regexp_image" text, "title_pre" text, "title_post" text, "url_pre" text, "url_post" text, "last_checked" datetime, "parse_errors" integer DEFAULT 0, "is_disabled" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.055672)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000595)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mSQL (0.007845)[0m   [0mPRAGMA table_info(targets)[0m
+  [4;36;1mSQL (0.000805)[0m   [0;1mINSERT INTO targets ("name", "regexp_intro", "title_post", "intro", "parse_errors", "updated_at", "url_base", "url_pre", "url_target", "body", "regexp_body", "regexp_body_time", "regexp_title", "title", "image_base", "regexp_body_date", "regexp_notes", "notes", "regexp_image", "url_post", "category_id", "is_disabled", "title_pre", "regexp_time", "regexp_url", "last_checked", "regexp_date", "limit", "created_at") VALUES('distrowatch', '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src=', NULL, NULL, 0, '2006-06-23 23:21:20', 'http://distrowatch.com/table.php?distribution=', NULL, 'http://distrowatch.com/index.php?dataspan=4', NULL, '<th class="Info">Mirrors de Descarga<\/th>\s+<td class="Info">\s*<a href="(\S+)">', NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href=".+">(.+)<\/a><\/td>', 'DistroWatch Monthly Top', NULL, NULL, NULL, NULL, NULL, '&language=ES', NULL, 0, NULL, NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>', NULL, NULL, 10, '2006-06-23 23:21:20')[0m
+  [4;35;1mSQL (0.049776)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000689)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000431)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000577)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mTarget Load (0.001781)[0m   [0mSELECT * FROM targets WHERE (targets.id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.008869)[0m   [0;1mPRAGMA table_info(targets)[0m
+  [4;35;1mTarget Destroy (0.011573)[0m   [0m DELETE FROM targets
+ WHERE id = 1
+[0m
+  [4;36;1mSQL (0.049639)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000547)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.058817)[0m   [0;1mDROP TABLE targets[0m
+  [4;35;1mSQL (0.047541)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000645)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.050449)[0m   [0mDROP TABLE stories[0m
+  [4;36;1mSQL (0.055862)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000705)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.130390)[0m   [0mCREATE TABLE stories ("id" INTEGER PRIMARY KEY NOT NULL, "target_id" integer, "title" varchar(255) NOT NULL, "url" varchar(255) NOT NULL, "time" datetime NOT NULL, "intro" text NOT NULL, "body" text, "notes" text, "image_url" varchar(255), "clicks" integer, "is_not_in_home" integer(2) DEFAULT 0, "is_sticky" integer(2) DEFAULT 0, "is_unpublised" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.376697)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000608)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.061626)[0m   [0;1mCREATE TABLE targets ("id" INTEGER PRIMARY KEY NOT NULL, "category_id" integer, "name" varchar(255) NOT NULL, "title" varchar(255) NOT NULL, "intro" text, "body" text, "notes" text, "limit" integer, "url_target" text NOT NULL, "url_base" text, "image_base" text, "regexp_title" text NOT NULL, "regexp_url" text NOT NULL, "regexp_date" text, "regexp_time" text, "regexp_intro" text NOT NULL, "regexp_body" text, "regexp_body_date" text, "regexp_body_time" text, "regexp_notes" text, "regexp_image" text, "title_pre" text, "title_post" text, "url_pre" text, "url_post" text, "last_checked" datetime, "parse_errors" integer DEFAULT 0, "is_disabled" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.055727)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000558)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mSQL (0.007370)[0m   [0mPRAGMA table_info(targets)[0m
+  [4;36;1mSQL (0.000796)[0m   [0;1mINSERT INTO targets ("name", "regexp_intro", "title_post", "intro", "parse_errors", "updated_at", "url_base", "url_pre", "url_target", "body", "regexp_body", "regexp_body_time", "regexp_title", "title", "image_base", "regexp_body_date", "regexp_notes", "notes", "regexp_image", "url_post", "category_id", "is_disabled", "title_pre", "regexp_time", "regexp_url", "last_checked", "regexp_date", "limit", "created_at") VALUES('distrowatch', '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src=', NULL, NULL, 0, '2006-06-23 23:38:04', 'http://distrowatch.com/table.php?distribution=', NULL, 'http://distrowatch.com/index.php?dataspan=4', NULL, '<\/tr>\s*<tr class="Background">\s*<td class="Info">(.+)\s*<\/td>\s*<\/tr>\s*<\/table>', NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href=".+">(.+)<\/a><\/td>', 'DistroWatch Monthly Top', NULL, NULL, NULL, NULL, NULL, '&language=ES', NULL, 0, NULL, NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>', NULL, NULL, 10, '2006-06-23 23:38:04')[0m
+  [4;35;1mSQL (0.058078)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000727)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000456)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000567)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mTarget Load (0.001912)[0m   [0mSELECT * FROM targets WHERE (targets.id = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.008290)[0m   [0;1mPRAGMA table_info(targets)[0m
+  [4;35;1mTarget Destroy (0.012758)[0m   [0m DELETE FROM targets
+ WHERE id = 1
+[0m
+  [4;36;1mSQL (0.041317)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000587)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.050478)[0m   [0;1mDROP TABLE targets[0m
+  [4;35;1mSQL (0.047486)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000567)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.125560)[0m   [0mDROP TABLE stories[0m
+  [4;36;1mSQL (0.039172)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000772)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddStories (1)
+  [4;35;1mSQL (0.068777)[0m   [0mCREATE TABLE stories ("id" INTEGER PRIMARY KEY NOT NULL, "target_id" integer, "title" varchar(255) NOT NULL, "url" varchar(255) NOT NULL, "time" datetime NOT NULL, "intro" text NOT NULL, "body" text, "notes" text, "image_url" varchar(255), "clicks" integer, "is_not_in_home" integer(2) DEFAULT 0, "is_sticky" integer(2) DEFAULT 0, "is_unpublised" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.047360)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000541)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTargets (2)
+  [4;36;1mSQL (0.060767)[0m   [0;1mCREATE TABLE targets ("id" INTEGER PRIMARY KEY NOT NULL, "category_id" integer, "name" varchar(255) NOT NULL, "title" varchar(255) NOT NULL, "intro" text, "body" text, "notes" text, "limit" integer, "url_target" text NOT NULL, "url_base" text, "image_base" text, "regexp_title" text NOT NULL, "regexp_url" text NOT NULL, "regexp_date" text, "regexp_time" text, "regexp_intro" text NOT NULL, "regexp_body" text, "regexp_body_date" text, "regexp_body_time" text, "regexp_notes" text, "regexp_image" text, "title_pre" text, "title_post" text, "url_pre" text, "url_post" text, "last_checked" datetime, "parse_errors" integer DEFAULT 0, "is_disabled" integer(2) DEFAULT 0, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.047770)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000545)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to PopulateTargetsRules (3)
+  [4;35;1mSQL (0.007395)[0m   [0mPRAGMA table_info(targets)[0m
+  [4;36;1mSQL (0.000791)[0m   [0;1mINSERT INTO targets ("name", "regexp_intro", "title_post", "intro", "parse_errors", "updated_at", "url_base", "url_pre", "url_target", "body", "regexp_body", "regexp_body_time", "regexp_title", "title", "image_base", "regexp_body_date", "regexp_notes", "notes", "regexp_image", "url_post", "category_id", "is_disabled", "title_pre", "regexp_time", "regexp_url", "last_checked", "regexp_date", "limit", "created_at") VALUES('distrowatch', '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src=', NULL, NULL, 0, '2006-06-23 23:50:23', 'http://distrowatch.com/table.php?distribution=', NULL, 'http://distrowatch.com/index.php?dataspan=4', NULL, '<\/tr>\s*<tr class="Background">\s*<td class="Info">(.+?)\s*<\/td>\s*<\/tr>\s*<\/table>', NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href=".+">(.+)<\/a><\/td>', 'DistroWatch Monthly Top', NULL, NULL, NULL, NULL, NULL, '&language=ES', NULL, 0, NULL, NULL, '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>', NULL, NULL, 10, '2006-06-23 23:50:23')[0m
+  [4;35;1mSQL (0.058065)[0m   [0mUPDATE schema_info SET version = 3[0m
