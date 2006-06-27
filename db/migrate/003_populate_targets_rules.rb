@@ -11,6 +11,7 @@ class PopulateTargetsRules < ActiveRecord::Migration
       :regexp_url => '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>',
       :regexp_intro => '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src=',
       :regexp_body => '<\/tr>\s*<tr class="Background">\s*<td class="Info">(.+?)\s*<\/td>\s*<\/tr>\s*<\/table>',
+      :regexp_image => '<th class="Info">Mirrors de descarga<\/th>\s+<td class="Info">\s*<a href="(\S+)">',
       :url_post => '&language=ES'
     )
     target.save

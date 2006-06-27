@@ -2,9 +2,7 @@ class Leecher
   require 'uri'
   require 'net/http'
 
-  def initialize
-    @headers = { 'User-Agent' => 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)' }
-  end
+  HEADERS = { 'User-Agent' => 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)' }
 
   #
   # leeches one target at a time
@@ -168,18 +166,20 @@ class Leecher
     end
   end
 
-  private
-
   #
   # retrieve remote url using browser-agent header
   #
   def retrieve_url(url)
     uri  = URI::parse(url)
     http = Net::HTTP.new(uri.host, uri.port).start
-    res  = http.get(url,@headers)
+    res  = http.get(url,HEADERS)
     http.finish
     return res
+  rescue Timeout::Error
+    return false
   end
+
+  private
 
   #
   # strip html tags selectively

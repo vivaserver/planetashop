@@ -1,25 +1,25 @@
           <div id="mlnav">
             <ul>
-              <li><%= image_tag 'ar.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'argentina', 'Argentina', :country => 'argentina' %></li>
-              <li><%= image_tag 'br.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'brasil', 'Brasil', :country => 'brasil' %></li>
-              <li><%= image_tag 'cl.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'chile', 'Chile', :country => 'chile' %></li>
-              <li><%= image_tag 'co.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'colombia', 'Colombia', :country => 'colombia' %></li>
-              <li><%= image_tag 'ec.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'ecuador', 'Ecuador', :country => 'ecuador' %></li>
-              <li><%= image_tag 'mx.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'mexico', 'M&eacute;xico', :country => 'mexico' %></li>
-              <li><%= image_tag 'pe.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'peru', 'Per&uacute;', :country => 'peru' %></li>
-              <li><%= image_tag 'uy.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'uruguay', 'Uruguay', :country => 'uruguay' %></li>
-              <li><%= image_tag 've.gif', :align=>'middle' %> &nbsp; <%= link_to_if @params['country'] != 'venezuela', 'Venezuela', :country => 'venezuela' %></li>
+              <li><%= image_tag 'ar.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'argentina', 'Argentina', :country => 'argentina' %></li>
+              <li><%= image_tag 'br.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'brasil', 'Brasil', :country => 'brasil' %></li>
+              <li><%= image_tag 'cl.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'chile', 'Chile', :country => 'chile' %></li>
+              <li><%= image_tag 'co.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'colombia', 'Colombia', :country => 'colombia' %></li>
+              <li><%= image_tag 'ec.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'ecuador', 'Ecuador', :country => 'ecuador' %></li>
+              <li><%= image_tag 'mx.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'mexico', 'M&eacute;xico', :country => 'mexico' %></li>
+              <li><%= image_tag 'pe.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'peru', 'Per&uacute;', :country => 'peru' %></li>
+              <li><%= image_tag 'uy.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'uruguay', 'Uruguay', :country => 'uruguay' %></li>
+              <li><%= image_tag 've.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'venezuela', 'Venezuela', :country => 'venezuela' %></li>
             </ul>
           </div>
           <% @items.each_with_index { |i,j| %>
             <div class="<%= cycle 'item1', 'item2', 'item3', 'item4' %>">
-              <p><b><%= "#{i.elements['currency'].text} #{i.elements['price'].text}" -%></b></p>
-              <a href="<%= i.elements['link'].text.gsub!('XXX','332851') %>" title="<%= i.elements['title'].text.unpack('U*').pack('c*') %>">
-                <%= (i.elements['image_url'].text) ? (image_tag i.elements['image_url'].text, :size => '90x90') : (image_tag 'http://www.pmsvenezuela.com/art_sin_foto.jpg', :size => '90x90') %>
+              <p><b><%= "#{i.currency} #{i.price}" -%></b></p>
+              <a href="<%= i.link %>" title="<%= i.title %>">
+                <%= i.image_url ? (image_tag i.image_url, :size => '90x90') : (image_tag 'http://www.pmsvenezuela.com/art_sin_foto.jpg', :size => '90x90') %>
               </a>
               <p>
-                <a href="<%= i.elements['link'].text.gsub!('XXX','332851') %>" title="<%= i.elements['title'].text.unpack('U*').pack('c*') %>">
-                  <%= truncate i.elements['title'].text.unpack('U*').pack('c*').gsub('+',' '), 55 %>
+                <a href="<%= i.link %>" title="<%= i.title %>">
+                  <%= truncate i.title.gsub('+',' '), 55 %>
                 </a>
               </p>
             </div>
@@ -44,7 +44,7 @@
               </div>
             <% end %>
           <% } %>
-          <div id="pager"><%= pagination_links @pages, :params => { 'country' => @params[:country], 'order' => @params[:order] } %></div>
+          <div id="pager"><%= pagination_links @pages, :params => { 'country' => params[:country], 'order' => params[:order] } %></div>
         </div>
         <div id="col">
         </div>
@@ -84,9 +84,9 @@
             <table border="0" cellspacing="4" cellpadding="4" width="500">
               <% for distro in @distros %>
                 <tr>
-                  <td><a href="<%= distro.url %>"><%= distro.title %></a></td>
+                  <td><a href="<%= distro.url %>" title="<%= distro.body %>"><%= distro.title %></a></td>
                   <td> <%= image_tag 'bl_box.gif', :align => 'middle' %> </td>
-                  <td><a href="<%= distro.text %>" title="Descargar <%= distro.title %>"><%= distro.text %></a></td>
+                  <td><a href="<%= distro.image_url %>" title="Descargar <%= distro.title %>"><%= distro.image_url %></a></td>
                 </tr>
               <% end %>
             </table>
@@ -105,14 +105,14 @@
           +---------------------------------------------------------+
           */
           var ad=new Array()
-          ad[1]='<a href="http://www.mercadolibre.com.ar/jm/pms?site=332851&id=15826&go=CA" target="_top"><img border="0" src="http://pms.mercadolibre.com/cgi/pms/ban?site=208624&id=15826"></a>';
-          ad[2]='<!-- Afiliado deRemate --><table cellspacing="0" cellpadding="0" border="0"><tr><td align="center"><a href="http://afiliados.deremate.com.ar/contadores/banners.asp?idxBanner=28979"  ><img src="http://afiliados.deremate.com.ar/adjuntos/banners/00000844.gif" border="0"></a><img SRC="http://afiliados.deremate.com.ar/contadores/bannersImp.asp?idxBanner=28979" border="0" style="visibility:hidden;height:0px;width:0px;"></td></tr></table><!-- Fin Afiliado deRemate -->';
-          ad[3]='<a href="http://www.mercadolibre.com.ar/jm/pms?site=332851&id=15824&go=CA" target="_top"><img border="0" src="http://pms.mercadolibre.com/cgi/pms/ban?site=208624&id=15824"></a>';
-          ad[4]='<!-- Afiliado deRemate --><table cellspacing="0" cellpadding="0" border="0"><tr><td align="center"><a href="http://afiliados.deremate.com.ar/contadores/banners.asp?idxBanner=28980"  ><img src="http://afiliados.deremate.com.ar/adjuntos/banners/00000980.gif" border="0"></a><img SRC="http://afiliados.deremate.com.ar/contadores/bannersImp.asp?idxBanner=28980" border="0" style="visibility:hidden;height:0px;width:0px;"></td></tr></table><!-- Fin Afiliado deRemate -->';
-          ad[5]='<a href="http://www.mercadolibre.com.ar/jm/pms?site=332851&id=15598&go=CA" target="_top"><img border="0" src="http://pms.mercadolibre.com/cgi/pms/ban?site=208624&id=15598"></a>';
-          ad[6]='<!-- Afiliado deRemate --><table cellspacing="0" cellpadding="0" border="0"><tr><td align="center"><a href="http://afiliados.deremate.com.ar/contadores/banners.asp?idxBanner=28981"  ><img src="http://afiliados.deremate.com.ar/adjuntos/banners/00000979.gif" border="0"></a><img SRC="http://afiliados.deremate.com.ar/contadores/bannersImp.asp?idxBanner=28981" border="0" style="visibility:hidden;height:0px;width:0px;"></td></tr></table><!-- Fin Afiliado deRemate -->';
-          ad[7]='<a href="http://www.mercadolibre.com.ar/jm/pms?site=332851&id=15601&go=CA" target="_top"><img border="0" src="http://pms.mercadolibre.com/cgi/pms/ban?site=208624&id=15601"></a>';
-          ad[8]='<!-- Afiliado deRemate --><table cellspacing="0" cellpadding="0" border="0"><tr><td align="center"><a href="http://afiliados.deremate.com.ar/contadores/banners.asp?idxBanner=28982"  ><img src="http://afiliados.deremate.com.ar/adjuntos/banners/00000846.gif" border="0"></a><img SRC="http://afiliados.deremate.com.ar/contadores/bannersImp.asp?idxBanner=28982" border="0" style="visibility:hidden;height:0px;width:0px;"></td></tr></table><!-- Fin Afiliado deRemate -->';
+          ad[0]='<a href="http://www.mercadolibre.com.ar/jm/pms?site=332851&id=15826&go=CA" target="_top"><img border="0" src="http://pms.mercadolibre.com/cgi/pms/ban?site=208624&id=15826"></a>';
+          ad[1]='<!-- Afiliado deRemate --><table cellspacing="0" cellpadding="0" border="0"><tr><td align="center"><a href="http://afiliados.deremate.com.ar/contadores/banners.asp?idxBanner=28979"  ><img src="http://afiliados.deremate.com.ar/adjuntos/banners/00000844.gif" border="0"></a><img SRC="http://afiliados.deremate.com.ar/contadores/bannersImp.asp?idxBanner=28979" border="0" style="visibility:hidden;height:0px;width:0px;"></td></tr></table><!-- Fin Afiliado deRemate -->';
+          ad[2]='<a href="http://www.mercadolibre.com.ar/jm/pms?site=332851&id=15824&go=CA" target="_top"><img border="0" src="http://pms.mercadolibre.com/cgi/pms/ban?site=208624&id=15824"></a>';
+          ad[3]='<!-- Afiliado deRemate --><table cellspacing="0" cellpadding="0" border="0"><tr><td align="center"><a href="http://afiliados.deremate.com.ar/contadores/banners.asp?idxBanner=28980"  ><img src="http://afiliados.deremate.com.ar/adjuntos/banners/00000980.gif" border="0"></a><img SRC="http://afiliados.deremate.com.ar/contadores/bannersImp.asp?idxBanner=28980" border="0" style="visibility:hidden;height:0px;width:0px;"></td></tr></table><!-- Fin Afiliado deRemate -->';
+          ad[4]='<a href="http://www.mercadolibre.com.ar/jm/pms?site=332851&id=15598&go=CA" target="_top"><img border="0" src="http://pms.mercadolibre.com/cgi/pms/ban?site=208624&id=15598"></a>';
+          ad[5]='<!-- Afiliado deRemate --><table cellspacing="0" cellpadding="0" border="0"><tr><td align="center"><a href="http://afiliados.deremate.com.ar/contadores/banners.asp?idxBanner=28981"  ><img src="http://afiliados.deremate.com.ar/adjuntos/banners/00000979.gif" border="0"></a><img SRC="http://afiliados.deremate.com.ar/contadores/bannersImp.asp?idxBanner=28981" border="0" style="visibility:hidden;height:0px;width:0px;"></td></tr></table><!-- Fin Afiliado deRemate -->';
+          ad[6]='<a href="http://www.mercadolibre.com.ar/jm/pms?site=332851&id=15601&go=CA" target="_top"><img border="0" src="http://pms.mercadolibre.com/cgi/pms/ban?site=208624&id=15601"></a>';
+          ad[7]='<!-- Afiliado deRemate --><table cellspacing="0" cellpadding="0" border="0"><tr><td align="center"><a href="http://afiliados.deremate.com.ar/contadores/banners.asp?idxBanner=28982"  ><img src="http://afiliados.deremate.com.ar/adjuntos/banners/00000846.gif" border="0"></a><img SRC="http://afiliados.deremate.com.ar/contadores/bannersImp.asp?idxBanner=28982" border="0" style="visibility:hidden;height:0px;width:0px;"></td></tr></table><!-- Fin Afiliado deRemate -->';
           var xy=Math.floor(Math.random()*ad.length);
           document.write(ad[xy]);
         </script>

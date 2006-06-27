@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>
-      Planeta Linux Shop <%= @params['country'].upcase %> : El shopping de recursos Linux
+      Planeta Linux Shop <%= params[:country].upcase %> : El shopping de recursos Linux
     </title>
     <meta http-equiv="CONTENT-TYPE" content="text/html; charset=ISO-8859-1">
     <meta http-equiv="EXPIRES"      content="0">
@@ -16,7 +16,7 @@
     <meta name="ROBOTS"        content="INDEX, FOLLOW">
     <meta name="REVISIT-AFTER" content="1 DAYS">
     <meta name="RATING"        content="GENERAL">
-    <meta name="GENERATOR"     content="Planeta Shop ML 0.1r0r">
+    <meta name="GENERATOR"     content="Planeta Shop ML 0.5">
     <link rel="shortcut icon"  href="/images/favicon.ico">
     <%= stylesheet_link_tag 'layout' %>
     <%= stylesheet_link_tag 'style' %>
@@ -56,7 +56,7 @@
       <div id="container">
         <div id="header-container">
           <div id="header">
-            <h1>&nbsp;</h1>
+            <a href="/"><h1>&nbsp;</h1></a>
             <p><%= image_tag 'help.gif', :align => 'middle' %> &nbsp; <b>Planeta Linux Shop</b> es la respuesta de <a href="http://www.planetalinux.com.ar/">Planeta Linux Argentina</a> a la cl&aacute;sica pregunta <i>"&iquest;D&oacute;nde compro Linux?"</i><br>&iexcl;Elije tu pa&iacute;s y encuentra la mejor oferta!</p>
           </div>
         </div>
