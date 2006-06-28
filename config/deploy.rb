@@ -119,3 +119,15 @@ task :long_deploy do
   restart
   enable_web
 end
+
+# runleecher, use it after the first deploy_with_migrations
+desc "Run leecher for the first time..."
+task :runleecher do
+  run "cd #{current_path} && ruby lib/runleecher.rb production save"
+end
+
+# runmlparser, use it after the first deploy_with_migrations
+desc "Run ML parser for the first time..."
+task :runmlparser do
+  run "cd #{current_path} && ruby lib/runmlparser.rb production"
+end
