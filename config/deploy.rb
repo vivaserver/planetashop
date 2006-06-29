@@ -120,6 +120,12 @@ task :long_deploy do
   enable_web
 end
 
+desc "Always run leecher & parser after deploy with migrations"
+task :after_deploy_with_migrations do
+  runleecher
+  runmlparser
+end
+
 # runleecher, use it after the first deploy_with_migrations
 desc "Run leecher for the first time..."
 task :runleecher do
