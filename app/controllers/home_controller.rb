@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  # caches_page :index
+  caches_page :index
 
   def index
     mercado  = Country.find_by_name(params[:country])

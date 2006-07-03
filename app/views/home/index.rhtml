@@ -1,14 +1,14 @@
           <div id="mlnav">
             <ul>
-              <li><%= image_tag 'ar.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'argentina', 'Argentina', :country => 'argentina' %></li>
-              <li><%= image_tag 'br.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'brasil', 'Brasil', :country => 'brasil' %></li>
-              <li><%= image_tag 'cl.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'chile', 'Chile', :country => 'chile' %></li>
-              <li><%= image_tag 'co.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'colombia', 'Colombia', :country => 'colombia' %></li>
-              <li><%= image_tag 'ec.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'ecuador', 'Ecuador', :country => 'ecuador' %></li>
-              <li><%= image_tag 'mx.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'mexico', 'M&eacute;xico', :country => 'mexico' %></li>
-              <li><%= image_tag 'pe.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'peru', 'Per&uacute;', :country => 'peru' %></li>
-              <li><%= image_tag 'uy.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'uruguay', 'Uruguay', :country => 'uruguay' %></li>
-              <li><%= image_tag 've.gif', :align=>'middle' %> &nbsp; <%= link_to_if params[:country] != 'venezuela', 'Venezuela', :country => 'venezuela' %></li>
+              <li><%= image_tag 'ar.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'argentina', 'Argentina', :country => 'argentina' %></li>
+              <li><%= image_tag 'br.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'brasil', 'Brasil', :country => 'brasil' %></li>
+              <li><%= image_tag 'cl.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'chile', 'Chile', :country => 'chile' %></li>
+              <li><%= image_tag 'co.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'colombia', 'Colombia', :country => 'colombia' %></li>
+              <li><%= image_tag 'ec.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'ecuador', 'Ecuador', :country => 'ecuador' %></li>
+              <li><%= image_tag 'mx.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'mexico', 'M&eacute;xico', :country => 'mexico' %></li>
+              <li><%= image_tag 'pe.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'peru', 'Per&uacute;', :country => 'peru' %></li>
+              <li><%= image_tag 'uy.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'uruguay', 'Uruguay', :country => 'uruguay' %></li>
+              <li><%= image_tag 've.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'venezuela', 'Venezuela', :country => 'venezuela' %></li>
             </ul>
           </div>
           <% @items.each_with_index { |i,j| %>
@@ -51,10 +51,10 @@
         <div id="footer">
           <ul>
             <li><a href="/"><%= image_tag 'house.gif', :align => 'middle' %> </a></li>
-            <li><%= image_tag 'info.gif',  :align => 'middle' %> <a href="http://www.planetalinux.com.ar/planeta/71.html">Acerca</a></li>
-            <li><%= image_tag 'email.gif', :align => 'middle' %> <a href="http://www.planetalinux.com.ar/contact.html">Contacto</a></li>
-            <li><%= image_tag 'group.gif', :align => 'middle' %> <a href="http://www.planetalinux.com.ar/forum/index.php">Foros</a></li>
-            <li><%= image_tag 'link.gif',  :align => 'middle' %> <a href="http://www.planetalinux.com.ar/links.html">Links</a></li>
+            <li><%= image_tag 'info.gif',  :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/planeta/71.html">Acerca</a></li>
+            <li><%= image_tag 'email.gif', :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/contact.html">Contacto</a></li>
+            <li><%= image_tag 'group.gif', :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/forum/index.php">Foros</a></li>
+            <li><%= image_tag 'link.gif',  :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/links.html">Links</a></li>
           </ul>
         </div>
       </div>

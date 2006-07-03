@@ -37,10 +37,10 @@ class Leecher
               if target.limit == 0
                 target.stories.destroy_all
               else
-                target.stories.find(:all, :limit => target.limit).each { |obj| obj.destroy }
+                target.stories[0..target.limit].each { |obj| obj.destroy }
               end
             elsif limit
-              target.stories.find(:all, :limit => limit).each { |obj| obj.destroy }
+              target.stories[0..limit].each { |obj| obj.destroy }
             end
           end
           # urls, titles & intros #'s match, process

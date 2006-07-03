@@ -14,7 +14,6 @@ class AddStories < ActiveRecord::Migration
       t.column :is_sticky, :integer, :limit => 2, :default => '0'
       t.column :is_unpublised, :integer, :limit => 2, :default => '0'
       t.column :created_at, :datetime
-      t.column :updated_at, :datetime
     end
   end
 

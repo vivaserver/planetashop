@@ -16,5 +16,7 @@ ActiveRecord::Base.establish_connection(
   :database => "#{path[0..-4]}/#{data}"
 )
 
-Dir.chdir("#{path[0..-4]}/app/models")
-Dir.glob('*.rb') { |f| puts "loaded model #{f}" if require f }
+Dir.chdir("#{path[0..-4]}/app/models") { |d| 
+  Dir.glob('*.rb') { |f| puts "loaded model #{f.capitalize}" if require f }
+}
+puts
