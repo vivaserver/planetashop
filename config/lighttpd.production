@@ -1,0 +1,22 @@
+$HTTP["host"] =~ "^planetalinuxshop\.com\.ar$" {
+  url.redirect = (
+    "^/(.*)" => "http://www.planetalinuxshop.com.ar/$1",
+    "" => "http://www.planetalinuxshop.com.ar/"
+  )
+}
+$HTTP["host"] =~ "(www\.)?planetalinuxshop\.com\.ar$" {
+  server.document-root = "/var/www/planetashop/current/public"
+  url.rewrite = ( "^/$" => "index.html", "^([^.]+)$" => "$1.html" )
+  server.error-handler-404 = "/dispatch.fcgi"
+  fastcgi.server = ( ".fcgi" =>
+    ( "localhost" =>
+      (
+        "socket" => "/tmp/planetashop-fastcgi.socket",
+        "bin-path" => "/var/www/planetashop/current/public/dispatch.fcgi",
+        "bin-environment" => ( "RAILS_ENV" => "production" ),
+        "min-procs" => 2,
+        "max-procs" => 2
+      )
+    )
+  )
+}
