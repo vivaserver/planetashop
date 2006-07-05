@@ -2,7 +2,6 @@ body {
   font-family: Tahoma, Verdana, Helvetica;
   font-size: 11px;
   background: #ecf0f6;
-  margin: 6px;
   color: #000;
 }
 
@@ -152,7 +151,6 @@ ul#button li a:hover {
 
 #credits {
   clear: both;
-  font-size: 10px;
 }
 #credits ul {
   margin: 5px 0;

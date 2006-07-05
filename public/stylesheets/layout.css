@@ -1,10 +1,10 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 5px 0;
+  margin-bottom: 5px;
   text-align: left;
 }
 
@@ -24,7 +24,7 @@ h3 {
 }
 
 img {
-    border: 0px;
+  border: 0px;
 }
 
 p {
@@ -43,26 +43,26 @@ li {
 }
 
 #header p {
-    margin-left: 250px;
+  margin-left: 250px;
 }
 
 #header-menu {
-    text-align: right;
+  text-align: right;
 }
 
 ul#links li {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 ul#net {
-    margin-right: 10px;
-    text-align: right;
-    clear: none;
+  margin-right: 10px;
+  text-align: right;
+  clear: none;
 }
 ul#net li {
-    display: inline;
-    padding: 0.25em 0.5em;
+  display: inline;
+  padding: 0.25em 0.5em;
 }
 
 ul#nav li {
@@ -71,15 +71,15 @@ ul#nav li {
 }
 
 ul#button {
-    padding: 0;
-    list-style-type: none;
+  padding: 0;
+  list-style-type: none;
 }
 ul#button li {
-    display: inline;
+  display: inline;
 }
 ul#button li a {
-    padding: 0.2em 1.5em;
-    margin: 0 0.5em;
+  padding: 0.2em 1.5em;
+  margin: 0 0.5em;
 }
 
 #content {
@@ -99,12 +99,12 @@ ul#button li a {
 
 
 #message {
-    width: 99%;
-    margin: 1em;
-    padding: 1em;
+  width: 99%;
+  margin: 1em;
+  padding: 1em;
 }
 #message h1 {
-    padding: 1em;
+  padding: 1em;
 }
 
 
