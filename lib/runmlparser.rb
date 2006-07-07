@@ -18,7 +18,7 @@ class MLParse
   ML_CATEG       = '1734'
   ML_AFFL_SITE   = '332851'
   ML_SEARCH_WORD = 'linux'
-  
+
   def initialize(id)
     @country_id = id
   end
@@ -106,7 +106,7 @@ l = Leecher.new
 order = ''
 
 Country.find(:all).each do |c|
-  items_pre = c.items.size 
+  items_pre = c.items.size
   # first request just gets a gerenic xml for getting the total of items for pagination
   file  = l.retrieve_url("#{c.url_base}jm/searchXml?as_categ_id=#{MLParse::ML_CATEG}")
   total = (REXML::Document.new(file.body)).root.elements['listing'].attributes['items_total']
@@ -125,20 +125,20 @@ Country.find(:all).each do |c|
   file = l.retrieve_url("#{c.url_base}jm/searchXml?#{req}")
   if file
     REXML::Document.parse_stream(file.body,MLParse.new(c.id))
-    if c.items.size > items_pre
+    if c.items.size > 0
       # new items added since last xML parsing, delete older
       c.items.sort_by { |item| item.created_at }[0..items_pre].each { |item| item.destroy }
       # now delete cache
-      if File.directory?("#{path[0..-4]}/public/#{c.name}")
-        Dir.chdir("#{path[0..-4]}/public/#{c.name}") { |d|
+      if File.directory?("#{path[0..-4]}/public/cache/#{c.name}")
+        Dir.chdir("#{path[0..-4]}/public/cache/#{c.name}") { |d|
           Dir.glob('*.html') { |f| File.delete(f) }
         }
-        Dir.delete("#{path[0..-4]}/public/#{c.name}")
+        Dir.delete("#{path[0..-4]}/public/cache/#{c.name}")
       end
       if c.name == 'argentina'
-        File.delete("#{path[0..-4]}/public/index.html") if File.file?("#{path[0..-4]}/public/index.html") 
+        File.delete("#{path[0..-4]}/public/cache/index.html") if File.file?("#{path[0..-4]}/public/cache/index.html")
       else
-        File.delete("#{path[0..-4]}/public/#{c.name}") if  File.file?("#{path[0..-4]}/public/#{c.name}")
+        File.delete("#{path[0..-4]}/public/cache/#{c.name}") if  File.file?("#{path[0..-4]}/public/cache/#{c.name}")
       end
     end
   else
