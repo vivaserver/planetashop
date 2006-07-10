@@ -138,7 +138,7 @@ Country.find(:all).each do |c|
       if c.name == 'argentina'
         File.delete("#{path[0..-4]}/public/cache/index.html") if File.file?("#{path[0..-4]}/public/cache/index.html")
       else
-        File.delete("#{path[0..-4]}/public/cache/#{c.name}") if  File.file?("#{path[0..-4]}/public/cache/#{c.name}")
+        File.delete("#{path[0..-4]}/public/cache/#{c.name}.html") if  File.file?("#{path[0..-4]}/public/cache/#{c.name}.html")
       end
     end
   else
