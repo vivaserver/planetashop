@@ -42,6 +42,12 @@ class MLParse
         @item.link = t.gsub!('XXX',ML_AFFL_SITE) unless t =~ /^\n\s+/
       when 'image_url'
         @item.image_url = t unless t =~ /^\n\s+/
+      when 'seller_type'
+        @item.seller_type = t unless t =~ /^\n\s+/
+      when 'auction_type'
+        @item.auction_type = t unless t =~ /^\n\s+/
+      when 'mpago'
+        @item.mpago = t unless t =~ /^\n\s+/
       when 'currency'
         @item.currency = t unless t =~ /^\n\s+/
       when 'price'
@@ -92,6 +98,12 @@ class MLParse
             @item.auct_end = "#{yy}-#{mm}-#{dd} #{hh}:#{mn}:#{ss}"
           end
         end
+      when 'photo'
+        @item.photo = (t == 'Y' ? '1' : '0') unless t =~ /^\n\s+/
+      when 'highlight'
+        @item.highlight = (t == 'Y' ? '1' : '0') unless t =~ /^\n\s+/
+      when 'bold'
+        @item.bold = (t == 'Y' ? '1' : '0') unless t =~ /^\n\s+/
     end
   end
 

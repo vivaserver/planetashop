@@ -15,7 +15,7 @@
             <div class="<%= cycle 'item1', 'item2', 'item3', 'item4' %>">
               <p><b><%= "#{i.currency} #{i.price}" -%></b></p>
               <a href="<%= i.link %>" title="<%= i.title %>">
-                <%= i.image_url ? (image_tag i.image_url, :size => '90x90') : (image_tag 'http://www.pmsvenezuela.com/art_sin_foto.jpg', :size => '90x90') %>
+                <%= i.image_url ? (image_tag i.image_url, :size => '90x90') : (image_tag 'sin_foto.jpg', :size => '90x90') %>
               </a>
               <p>
                 <a href="<%= i.link %>" title="<%= i.title %>">
@@ -112,7 +112,7 @@
         google_ad_channel = "";
         //--></script>
         <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script>              
+        </script>
       </p>
       <center>
         <script type="text/javascript">

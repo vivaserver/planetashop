@@ -141,6 +141,8 @@ task :runmlparser do
 end
 
 #
+# please note that this tasks require that the main lighttp server configuration includes this site configuration
+#
 desc "Change vhost lighttpd config after disable_web"
 task :after_disable_web do
   run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.maintenance config/lighttpd.conf && chmod 0755 config"
