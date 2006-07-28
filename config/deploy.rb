@@ -125,7 +125,7 @@ desc "Always run leecher & parser after deploy with migrations"
 task :after_deploy_with_migrations do
   runleecher
   runmlparser
-  run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0755 public/cache"
+  run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0777 public/cache"
 end
 
 # runleecher, use it after the first deploy_with_migrations
@@ -141,7 +141,7 @@ task :runmlparser do
 end
 
 #
-# please note that this tasks require that the main lighttp server configuration includes this site configuration
+# please note that this tasks require that the main lighttpd server configuration includes this site configuration
 #
 desc "Change vhost lighttpd config after disable_web"
 task :after_disable_web do
