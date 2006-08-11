@@ -1,16 +1,9 @@
-abs = File.expand_path(__FILE__)
-path, file = File.split(abs)
-
-require "#{path}/leecher"
-require "#{path}/outrails"
-require 'rexml/document'
-require 'rexml/streamlistener'
-require 'iconv'
-include REXML
-
 # Item = Struct.new(:country_id, :number, :title, :link, :image_url, :currency, :price, :bids, :hot, :hits, :auct_end)
-
-class MLParse
+class MLParser
+  require 'rexml/document'
+  require 'rexml/streamlistener'
+  require 'iconv'
+  include REXML
   include StreamListener
 
   ML_USER        = 'ELVENGADOR'                 # 'mauriciov'
@@ -113,49 +106,3 @@ class MLParse
     end
   end
 end
-
-l = Leecher.new
-order = ''
-
-Country.find(:all).each do |c|
-  items_pre = c.items.size
-  # first request just gets a gerenic xml for getting the total of items for pagination
-  file  = l.retrieve_url("#{c.url_base}jm/searchXml?as_categ_id=#{MLParse::ML_CATEG}")
-  total = (REXML::Document.new(file.body)).root.elements['listing'].attributes['items_total']
-  if total.to_i == 0
-    # no linux-specific category. try global word search
-    req   = "as_word=#{MLParse::ML_SEARCH_WORD}"
-    file  = l.retrieve_url("#{c.url_base}jm/searchXml?#{req}")
-    total = (REXML::Document.new(file.body)).root.elements['listing'].attributes['items_total']
-    puts "#{c.title}: #{total} items by search"
-  else
-    req = "as_categ_id=#{MLParse::ML_CATEG}"
-    puts "#{c.title}: #{total} items by category"
-  end
-  req += "&as_order_id=#{order}&as_qshow=#{total}&user=#{MLParse::ML_USER}&pwd=#{MLParse::ML_PASS}"
-  #
-  file = l.retrieve_url("#{c.url_base}jm/searchXml?#{req}")
-  if file
-    REXML::Document.parse_stream(file.body,MLParse.new(c.id))
-    if c.items.size > 0
-      # new items added since last xML parsing, delete older
-      c.items.sort_by { |item| item.created_at }[0..items_pre].each { |item| item.destroy }
-      # now delete cache
-      if File.directory?("#{path[0..-4]}/public/cache/#{c.name}")
-        Dir.chdir("#{path[0..-4]}/public/cache/#{c.name}") { |d|
-          Dir.glob('*.html') { |f| File.delete(f) }
-        }
-        Dir.delete("#{path[0..-4]}/public/cache/#{c.name}")
-      end
-      if c.name == 'argentina'
-        File.delete("#{path[0..-4]}/public/cache/index.html") if File.file?("#{path[0..-4]}/public/cache/index.html")
-      else
-        File.delete("#{path[0..-4]}/public/cache/#{c.name}.html") if  File.file?("#{path[0..-4]}/public/cache/#{c.name}.html")
-      end
-    end
-  else
-    # no specific linux category to list. try global search
-  end
-end
-
-

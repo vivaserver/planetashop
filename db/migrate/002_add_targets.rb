@@ -28,6 +28,7 @@ class AddTargets < ActiveRecord::Migration
       t.column :last_checked,     :datetime
       t.column :parse_errors,     :integer, :default => '0'
       t.column :is_disabled,      :integer, :default => '0', :limit => 2
+      t.column :is_not_multiline, :integer, :default => '0', :limit => 2
       t.column :created_at,       :datetime
     end
   end

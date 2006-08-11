@@ -123,21 +123,21 @@ end
 # always run leechers after deploy_with_migrations
 desc "Always run leecher & parser after deploy with migrations"
 task :after_deploy_with_migrations do
-  runleecher
-  runmlparser
+  leech
+  mlparse
   run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0777 public/cache"
 end
 
 # runleecher, use it after the first deploy_with_migrations
 desc "Run leecher for the first time..."
-task :runleecher do
-  run "cd #{current_path} && ruby lib/runleecher.rb production save"
+task :leech do
+  run "cd #{current_path} && ./lib/leech --env=production --save"
 end
 
 # runmlparser, use it after the first deploy_with_migrations
 desc "Run ML parser for the first time..."
-task :runmlparser do
-  run "cd #{current_path} && ruby lib/runmlparser.rb production"
+task :mlparse do
+  run "cd #{current_path} && ./lib/mlparse --env=production"
 end
 
 #

@@ -1,22 +1,48 @@
-# load all rails models w/o full environment
+# loads all rails models w/o full environment
+module OutRails
+  require 'yaml'
+  require 'rubygems'
+  require_gem 'activerecord'
 
-require 'yaml'
-require 'rubygems'
-require_gem 'activerecord'
+  def load_models(path)
+    if ARGV.size > 0
+      ARGV.each { |arg|
+        case arg
+          when /--env=(development|production|test)/
+            @env = $1
+          when /--(save|update)/
+            @opt = $1
+          when /--limit=(\d{1,2})/
+            @limit  = $1
+          when /--target=(.+)/
+            @target = $1
+        end
+      }
+    end
 
-abs = File.expand_path(__FILE__)
-path, file = File.split(abs)
+    @env ||= 'development'
+    conf = YAML::load_file("#{path[0..-4]}/config/database.yml")
 
-env  = ARGV.size == 0 ? 'development' : ARGV[0]
-conf = YAML::load_file("#{path[0..-4]}/config/database.yml")
-data = conf[env]['database']
+    case conf[@env]['adapter']
+      when 'mysql'
+        ActiveRecord::Base.establish_connection(
+          :adapter  => conf[@env]['adapter'],
+          :database => conf[@env]['database'],
+          :username => conf[@env]['username'],
+          :password => conf[@env]['password'],
+          :socket   => conf[@env]['socket']
+        )
+      when 'sqlite'
+      when 'sqlite3'
+        ActiveRecord::Base.establish_connection(
+          :adapter  => conf[@env]['adapter'],
+          :database => "#{path[0..-4]}/#{conf[@env]['database']}"
+        )
+    end
 
-ActiveRecord::Base.establish_connection(
-  :adapter  => conf[env]['adapter'],
-  :database => "#{path[0..-4]}/#{data}"
-)
-
-Dir.chdir("#{path[0..-4]}/app/models") { |d| 
-  Dir.glob('*.rb') { |f| puts "loaded model #{f.capitalize}" if require f }
-}
-puts
+    Dir.chdir("#{path[0..-4]}/app/models") { |d|
+      Dir.glob('*.rb') { |f| puts "loaded model #{f.capitalize}" if require f }
+    }
+    puts
+  end
+end

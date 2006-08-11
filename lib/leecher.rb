@@ -57,7 +57,12 @@ class Leecher
             #
             if target.regexp_body
               if story = retrieve_url(uri)
-                body = story.body.scan(Regexp.new(target.regexp_body,Regexp::MULTILINE)) # note forced multi-line regexp
+                if target.is_not_multiline
+                  body = story.body.scan(Regexp.new(target.regexp_body))
+                else
+                  # note forced multi-line regexp
+                  body = story.body.scan(Regexp.new(target.regexp_body,Regexp::MULTILINE))
+                end
                 if body.empty?
                   # strange... got full text page && regexp, but no match found (maybe uri redirect?)
                   # safe best guess: ignore this story

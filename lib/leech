@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+path, file = File.split(File.expand_path(__FILE__))
+
+require "#{path}/leecher"
+require "#{path}/outrails"
+
+class Leech
+  include OutRails
+
+  def initialize(path)
+    l = Leecher.new
+    if ARGV.include?('--test')
+      target = 'http://distrowatch.com/index.php?dataspan=4'
+      target = 'http://distrowatch.com/table.php?distribution=debian&language=ES'
+      target = 'http://distrowatch.com/table.php?distribution=damnsmall&language=ES'
+      target = 'http://distrowatch.com/table.php?distribution=fedora&language=ES'
+      target = 'http://distrowatch.com/table.php?distribution=suse&language=ES'
+      #regexp = '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src='
+      #regexp = '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>'
+      #regexp = '<th class="News">\d+<\/th>\s+<td class="News"><a href=".+">(.+)<\/a><\/td>'
+      #regexp = '<\/tr>\s*<tr class="Background">\s*<td class="Info">(.+)\s*<\/td>\s*<\/tr>\s*<\/table>'
+      regexp = '<th class="Info">Mirrors de descarga<\/th>\s+<td class="Info">\s*<a href="(\S+)">'
+      #
+      l.test(target,regexp)
+    else
+      load_models(path)
+      #
+      if @target
+        t = Target.find_by_name(@target)
+        l.leech(t,@opt,@limit)
+      else
+        Target.find(:all).each { |t| l.leech(t,@opt,@limit) }
+      end
+    end
+  end
+end
+
+Leech.new(path)
