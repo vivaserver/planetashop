@@ -132,12 +132,16 @@ end
 desc "Run leecher for the first time..."
 task :leech do
   run "cd #{current_path} && ./lib/leech --env=production --save"
+  run "chmod 0755 ./lib/leech"
+  run "./lib/leech --env=production --save"
 end
 
 # runmlparser, use it after the first deploy_with_migrations
 desc "Run ML parser for the first time..."
 task :mlparse do
-  run "cd #{current_path} && ./lib/mlparse --env=production"
+  run "cd #{current_path}"
+  run "chmod 0755 ./lib/mlparse"
+  run "./lib/mlparse --env=production"
 end
 
 #
