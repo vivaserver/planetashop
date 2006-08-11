@@ -120,6 +120,12 @@ task :long_deploy do
   enable_web
 end
 
+#
+desc "Make public/cache writable"
+task :after_deploy do
+  run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0777 public/cache"
+end
+
 # always run leechers after deploy_with_migrations
 desc "Always run leecher & parser after deploy with migrations"
 task :after_deploy_with_migrations do
