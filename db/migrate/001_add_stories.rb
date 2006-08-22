@@ -12,7 +12,7 @@ class AddStories < ActiveRecord::Migration
       t.column :clicks,         :integer
       t.column :is_not_in_home, :integer,  :default => '0', :limit => 2
       t.column :is_sticky,      :integer,  :default => '0', :limit => 2
-      t.column :is_unpublised,  :integer,  :default => '0', :limit => 2
+      t.column :is_unpublished, :integer,  :default => '0', :limit => 2
       t.column :created_at,     :datetime
     end
   end
