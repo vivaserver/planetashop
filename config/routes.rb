@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   # instead of a file named 'wsdl'
   map.connect ':controller/service.wsdl', :action => 'wsdl'
 
-  map.connect ':country/:page', :controller => 'home', :page => nil, :requirements => {:country => /(argentina|brasil|chile|colombia|ecuador|mexico|peru|venezuela|uruguay)/, :page => /\d{1,2}/}
+  map.connect ':country/:page', :controller => 'home', :country => nil, :page => nil, :requirements => {:country => /(argentina|brasil|chile|colombia|ecuador|mexico|peru|venezuela|uruguay)/, :page => /\d{1,2}/}
 
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id'
