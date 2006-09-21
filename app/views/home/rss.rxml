@@ -1,0 +1,23 @@
+#
+# RSS2 rxml template from http://www.bigbold.com/snippets/posts/show/558
+# see also
+# Atom rxml template from http://www.bigbold.com/snippets/posts/show/559
+#
+xml.instruct!
+
+xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+  xml.channel do
+    xml.title       "Planeta Linux Shop #{@mercado.title.upcase}"
+    xml.link        url_for :controller => 'home', :country => params[:country], :only_path => false
+    xml.pubDate     CGI.rfc1123_date @items.first.created_at if @items.any?
+    xml.description "Planeta Linux Shop: #{@mercado.title.upcase}"
+    @items.each do |item|
+      xml.item do
+        xml.title   item.title
+        xml.link    url_for item.link
+        xml.pubDate CGI.rfc1123_date item.created_at
+        xml.author  'Planeta Linux Shop'
+      end
+    end
+  end
+end

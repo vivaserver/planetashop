@@ -1,14 +1,14 @@
           <div id="mlnav">
             <ul>
-              <li><%= image_tag 'ar.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'argentina', 'Argentina', :country => 'argentina' %></li>
-              <li><%= image_tag 'br.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'brasil', 'Brasil', :country => 'brasil' %></li>
-              <li><%= image_tag 'cl.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'chile', 'Chile', :country => 'chile' %></li>
-              <li><%= image_tag 'co.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'colombia', 'Colombia', :country => 'colombia' %></li>
-              <li><%= image_tag 'ec.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'ecuador', 'Ecuador', :country => 'ecuador' %></li>
-              <li><%= image_tag 'mx.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'mexico', 'M&eacute;xico', :country => 'mexico' %></li>
-              <li><%= image_tag 'pe.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'peru', 'Per&uacute;', :country => 'peru' %></li>
-              <li><%= image_tag 'uy.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'uruguay', 'Uruguay', :country => 'uruguay' %></li>
-              <li><%= image_tag 've.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_if params[:country] != 'venezuela', 'Venezuela', :country => 'venezuela' %></li>
+              <li><%= image_tag 'ar.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'Argentina', :country => 'argentina' %></li>
+              <li><%= image_tag 'br.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'Brasil', :country => 'brasil' %></li>
+              <li><%= image_tag 'cl.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'Chile', :country => 'chile' %></li>
+              <li><%= image_tag 'co.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'Colombia', :country => 'colombia' %></li>
+              <li><%= image_tag 'ec.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'Ecuador', :country => 'ecuador' %></li>
+              <li><%= image_tag 'mx.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'M&eacute;xico', :country => 'mexico' %></li>
+              <li><%= image_tag 'pe.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'Per&uacute;', :country => 'peru' %></li>
+              <li><%= image_tag 'uy.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'Uruguay', :country => 'uruguay' %></li>
+              <li><%= image_tag 've.gif', :align=>'absmiddle' %> &nbsp; <%= link_to_unless_current 'Venezuela', :country => 'venezuela' %></li>
             </ul>
           </div>
           <% @items.each_with_index { |i,j| %>
@@ -52,7 +52,7 @@
           <ul>
             <li><a href="/"><%= image_tag 'house.gif', :align => 'absmiddle' %> </a></li>
             <li><%= image_tag 'info.gif',  :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/planeta/71.html">Acerca</a></li>
-            <li><%= image_tag 'email.gif', :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/contact.html">Contacto</a></li>
+            <li><%= image_tag 'email.gif', :align => 'absmiddle' %> <a href="http://www.vivalinux.com.ar/contact">Contacto</a></li>
             <li><%= image_tag 'group.gif', :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/forum/index.php">Foros</a></li>
             <li><%= image_tag 'link.gif',  :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/links.html">Links</a></li>
           </ul>
@@ -140,6 +140,19 @@
       </center>
       <div id="credits">
         <p>&copy; 2006 <b>Planeta Linux Shop</b>. El shopping de recursos Linux. Web Hosting <%= image_tag 'railspower', :align => 'absmiddle' %> por <a href="http://www.vivaserver.com.ar/">VivaServer</a>.</p>
+        <p>
+          <a href="http://www.phpnuke.com.ar/phpbb">Descargar phpBB</a>
+          &nbsp;&nbsp;
+          <a href="http://www.phpnuke.com.ar/">Descargar PHP-Nuke</a>
+          &nbsp;&nbsp;
+          <a href="http://www.phpnuke.com.ar/postnuke">Descargar PostNuke</a>
+          &nbsp;&nbsp;
+          <a href="http://www.vivabsd.com.ar/">VivaBSD!</a>
+          &nbsp;&nbsp;
+          <a href="http://www.vivalinux.com.ar/">VivaLinux!</a>
+          &nbsp;&nbsp;
+          <a href="http://www.vivahardware.com.ar/">VivaHardware!</a>
+        </p>
       </div>
     </center>
   </body>
