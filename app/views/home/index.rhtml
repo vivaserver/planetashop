@@ -50,11 +50,11 @@
         </div>
         <div id="footer">
           <ul>
-            <li><a href="/"><%= image_tag 'house.gif', :align => 'absmiddle' %> </a></li>
-            <li><%= image_tag 'info.gif',  :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/planeta/71.html">Acerca</a></li>
-            <li><%= image_tag 'email.gif', :align => 'absmiddle' %> <a href="http://www.vivalinux.com.ar/contact">Contacto</a></li>
-            <li><%= image_tag 'group.gif', :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/forum/index.php">Foros</a></li>
-            <li><%= image_tag 'link.gif',  :align => 'absmiddle' %> <a href="http://www.planetalinux.com.ar/links.html">Links</a></li>
+            <li><%= link_to image_tag('house.gif', :align => 'absmiddle'), home_url %> </a></li>
+            <li><%= image_tag('info.gif',  :align => 'absmiddle') %> <a href="http://www.planetalinux.com.ar/planeta/71.html">Acerca</a></li>
+            <li><%= image_tag('email.gif', :align => 'absmiddle') %> <a href="http://www.vivalinux.com.ar/contact">Contacto</a></li>
+            <li><%= image_tag('group.gif', :align => 'absmiddle') %> <a href="http://www.planetalinux.com.ar/forum/index.php">Foros</a></li>
+            <li><%= link_to image_tag('feed.gif', :align => 'absmiddle'), :action => 'rss' %></li>
           </ul>
         </div>
       </div>
@@ -139,7 +139,6 @@
         </script>
       </center>
       <div id="credits">
-        <p>&copy; 2006 <b>Planeta Linux Shop</b>. El shopping de recursos Linux. Web Hosting <%= image_tag 'railspower', :align => 'absmiddle' %> por <a href="http://www.vivaserver.com.ar/">VivaServer</a>.</p>
         <p>
           <a href="http://www.phpnuke.com.ar/phpbb">Descargar phpBB</a>
           &nbsp;&nbsp;
@@ -151,8 +150,11 @@
           &nbsp;&nbsp;
           <a href="http://www.vivalinux.com.ar/">VivaLinux!</a>
           &nbsp;&nbsp;
+          <a href="http://www.vivabsd.com.ar/">VivaPHP!</a>
+          &nbsp;&nbsp;
           <a href="http://www.vivahardware.com.ar/">VivaHardware!</a>
         </p>
+        <p>&copy; 2006 <b>Planeta Linux Shop</b>. El shopping de recursos Linux. Web Hosting <%= image_tag 'railspower', :align => 'absmiddle' %> por <a href="http://www.vivaserver.com.ar/">VivaServer</a>.</p>
       </div>
     </center>
   </body>
