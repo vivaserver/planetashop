@@ -131,7 +131,7 @@ end
 # runleecher, use it after the first deploy_with_migrations
 desc "Run leecher for the first time..."
 task :first_time_leech do
-  run "#{release_path}/lib/leech --save --env=production"
+  run "cd #{release_path}/lib && chmod 0755 leech && ./leech --save --env=production"
 end
 
 # runmlparser, use it after the first deploy_with_migrations
