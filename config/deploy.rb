@@ -125,7 +125,7 @@ desc "Always run leecher & parser after deploy with migrations"
 task :after_deploy_with_migrations do
   first_time_leech
   first_time_mlparse
-  run "cd #{release_path} && chmod 0666 config && chmod 0666 log/*.log && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0755 public && chmod 0755 public/cache && chmod 0755 tmp && /etc/init.d/lighttpd force-reload"
+  run "cd #{release_path} && chmod 0666 config && chmod 0666 log/*.log && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0777 public/cache && chmod 0755 tmp && /etc/init.d/lighttpd force-reload"
 end
 
 # runleecher, use it after the first deploy_with_migrations
