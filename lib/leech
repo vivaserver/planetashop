@@ -15,7 +15,6 @@ class Leech
       target = 'http://distrowatch.com/table.php?distribution=debian&language=ES'
       target = 'http://distrowatch.com/table.php?distribution=damnsmall&language=ES'
       target = 'http://distrowatch.com/table.php?distribution=fedora&language=ES'
-      target = 'http://distrowatch.com/table.php?distribution=suse&language=ES'
       #regexp = '<td class="News" style="text-align: right" title="Yesterday: \d{2,}">(\d{2,})<img src='
       #regexp = '<th class="News">\d+<\/th>\s+<td class="News"><a href="(.+)">.+<\/a><\/td>'
       #regexp = '<th class="News">\d+<\/th>\s+<td class="News"><a href=".+">(.+)<\/a><\/td>'

@@ -120,34 +120,24 @@ task :long_deploy do
   enable_web
 end
 
-#
-desc "Make public/cache writable"
-task :after_deploy do
-  run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0777 public/cache"
-end
-
 # always run leechers after deploy_with_migrations
 desc "Always run leecher & parser after deploy with migrations"
 task :after_deploy_with_migrations do
-  leech
-  mlparse
-  run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0777 public/cache"
+  first_time_leech
+  first_time_mlparse
+  run "cd #{release_path} && chmod 0666 config && chmod 0666 log/*.log && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0755 public && chmod 0755 public/cache && chmod 0755 tmp && /etc/init.d/lighttpd force-reload"
 end
 
 # runleecher, use it after the first deploy_with_migrations
 desc "Run leecher for the first time..."
-task :leech do
-  run "cd #{current_path} && ./lib/leech --env=production --save"
-  run "chmod 0755 ./lib/leech"
-  run "./lib/leech --env=production --save"
+task :first_time_leech do
+  run "#{release_path}/lib/leech --save --env=production"
 end
 
 # runmlparser, use it after the first deploy_with_migrations
 desc "Run ML parser for the first time..."
 task :mlparse do
-  run "cd #{current_path}"
-  run "chmod 0755 ./lib/mlparse"
-  run "./lib/mlparse --env=production"
+  run "#{release_path}/lib/mlparse --env=production"
 end
 
 #
@@ -155,13 +145,11 @@ end
 #
 desc "Change vhost lighttpd config after disable_web"
 task :after_disable_web do
-  run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.maintenance config/lighttpd.conf && chmod 0755 config"
-  run "/etc/init.d/lighttpd restart"
+  run "cd #{release_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.maintenance config/lighttpd.conf && chmod 0755 config && chmod 0755 public && chmod 0755 tmp && /etc/init.d/lighttpd force-reload"
 end
 
 #
 desc "Change vhost lighttpd config after enable_web"
 task :after_enable_web do
-  run "cd #{current_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config"
-  run "/etc/init.d/lighttpd restart"
+  run "cd #{release_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0755 public && chmod 0755 tmp && /etc/init.d/lighttpd force-reload"
 end
