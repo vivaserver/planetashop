@@ -136,7 +136,7 @@ end
 
 # runmlparser, use it after the first deploy_with_migrations
 desc "Run ML parser for the first time..."
-task :mlparse do
+task :first_time_mlparse do
   run "#{release_path}/lib/mlparse --env=production"
 end
 
