@@ -141,15 +141,20 @@ task :first_time_mlparse do
 end
 
 #
-# please note that this tasks require that the main lighttpd server configuration includes this site configuration
+# following rules require that the /etc/lighttpd/lighttpd.conf includes a line like:
+#  include "../../var/www/planetashop/current/config/lighttpd.conf"
 #
-desc "Change vhost lighttpd config after disable_web"
+desc 'Replace vhost config with maintenance config & restart lighttpd'
 task :after_disable_web do
-  run "cd #{release_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.maintenance config/lighttpd.conf && chmod 0755 config && chmod 0755 public && chmod 0755 tmp && /etc/init.d/lighttpd force-reload"
+  sudo "rm #{current_path}/config/lighttpd.conf"
+  sudo "cp #{current_path}/config/lighttpd.maintenance #{current_path}/config/lighttpd.conf"
+  sudo "/etc/init.d/lighttpd restart"
 end
 
-#
-desc "Change vhost lighttpd config after enable_web"
+desc 'Replace maintenance config with vhost config & restart lighttpd'
 task :after_enable_web do
-  run "cd #{release_path} && chmod 0666 config && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0755 public && chmod 0755 tmp && /etc/init.d/lighttpd force-reload"
+  sudo "rm #{current_path}/config/lighttpd.conf"
+  sudo "cp #{current_path}/config/lighttpd.production #{current_path}/config/lighttpd.conf"
+  sudo "/etc/init.d/lighttpd restart"
 end
+
