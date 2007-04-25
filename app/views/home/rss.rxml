@@ -1,10 +1,8 @@
-#
 # RSS2 rxml template from http://www.bigbold.com/snippets/posts/show/558
 # see also
 # Atom rxml template from http://www.bigbold.com/snippets/posts/show/559
 #
-xml.instruct!
-
+xml.instruct! :xml, :encoding => 'iso-8859-1'
 xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
   xml.channel do
     xml.title       "Planeta Linux Shop #{@mercado.title.upcase}"

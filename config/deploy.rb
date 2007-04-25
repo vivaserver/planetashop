@@ -124,20 +124,20 @@ end
 desc "Always run leecher & parser after deploy with migrations"
 task :after_deploy_with_migrations do
   first_time_leech
-  parse_xml
-  after_disable_web
 end
 
 # runleecher, use it after the first deploy_with_migrations
 desc "Run leecher for the first time..."
 task :first_time_leech do
-  sudo "cd #{release_path}/lib && chmod 0755 leech && ./leech --save --env=production"
+  sudo "chmod 0755 #{release_path}/lib/leech"
+  sudo "#{release_path}/lib/leech --save --env=production"
 end
 
 # runmlparser, use it after the first deploy_with_migrations
 desc 'New Hpricot xML parser'
 task :parse_xml do
-  sudo "#{release_path}/rake parse:xml"
+  run "cd #{current_path}"
+  run "rake parse:xml RAILS_ENV=production"
 end
 
 # thanks to http://litespeedtech.com/support/wiki/doku.php?id=litespeed_wiki:capistrano

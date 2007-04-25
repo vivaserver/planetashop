@@ -31,10 +31,12 @@ namespace :parse do
         # thanks to http://railstips.org/2006/12/9/parsing-xml-with-hpricot
         ['title','link','image_url','seller_type','auction_type','mpago','currency','price','bids','hot','hits','auct_end','listing_features','zones','feedback','condition'].each do |i|
           case i
-            when 'title'
-              title = e.at(i).inner_text.strip
-              title = Iconv.new('utf-8','iso-8859-1').iconv(title)
-              @item.title = title
+            # production db is now mysql with utf8_general_ci encoding, so conversion to/from iso-8859-1 is no longer necessary
+            # (also, all xml parsing in ruby is utf-8)
+            # when 'title'
+            #   title = e.at(i).inner_text.strip
+            #   title = Iconv.new('utf-8','iso-8859-1').iconv(title)
+            #   @item.title = title
             when 'link'
               @item.link = e.at(i).inner_text.strip.gsub('XXX',ML_AFFL_SITE)
             when 'image_url'
