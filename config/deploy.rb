@@ -124,20 +124,29 @@ end
 desc "Always run leecher & parser after deploy with migrations"
 task :after_deploy_with_migrations do
   first_time_leech
-  first_time_mlparse
-  run "cd #{release_path} && chmod 0666 config && chmod 0666 log/*.log && rm config/lighttpd.conf && cp config/lighttpd.production config/lighttpd.conf && chmod 0755 config && chmod 0777 public/cache && chmod 0755 tmp && /etc/init.d/lighttpd force-reload"
+  parse_xml
+  after_disable_web
 end
 
 # runleecher, use it after the first deploy_with_migrations
 desc "Run leecher for the first time..."
 task :first_time_leech do
-  run "cd #{release_path}/lib && chmod 0755 leech && ./leech --save --env=production"
+  sudo "cd #{release_path}/lib && chmod 0755 leech && ./leech --save --env=production"
 end
 
 # runmlparser, use it after the first deploy_with_migrations
-desc "Run ML parser for the first time..."
-task :first_time_mlparse do
-  run "#{release_path}/lib/mlparse --env=production"
+desc 'New Hpricot xML parser'
+task :parse_xml do
+  sudo "#{release_path}/rake parse:xml"
+end
+
+# thanks to http://litespeedtech.com/support/wiki/doku.php?id=litespeed_wiki:capistrano
+desc 'Set www-data user/group permission to deployed release tree'
+task :after_update_code do
+  sudo "chown -R www-data:www-data #{release_path}"
+end
+task :after_setup do
+  sudo "chown -R www-data:www-data #{deploy_to}/shared"
 end
 
 #
