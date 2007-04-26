@@ -10,6 +10,6 @@ class HomeController < ApplicationController
   def rss
     @mercado = Country.find_by_name(params[:country])
     @items   = @mercado.items[0..9]
-    render :layout => false
+    render(:layout => false)
   end
 end

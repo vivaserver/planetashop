@@ -131,13 +131,17 @@ desc "Run leecher for the first time..."
 task :first_time_leech do
   sudo "chmod 0755 #{release_path}/lib/leech"
   sudo "#{release_path}/lib/leech --save --env=production"
+  # first migration creates log files as root user, so chmod them back to www-data user/group
+  after_setup
 end
 
-# runmlparser, use it after the first deploy_with_migrations
+# xML parser, use it after the first deploy_with_migrations
 desc 'New Hpricot xML parser'
 task :parse_xml do
-  run "cd #{current_path}"
-  run "rake parse:xml RAILS_ENV=production"
+  run "cd #{current_path} && rake parse:xml RAILS_ENV=production"
+end
+task :clear_cache do
+  run "cd #{current_path} && rake parse:clear_cache RAILS_ENV=production"
 end
 
 # thanks to http://litespeedtech.com/support/wiki/doku.php?id=litespeed_wiki:capistrano
