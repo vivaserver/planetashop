@@ -38,7 +38,7 @@ namespace :parse do
             #   title = Iconv.new('utf-8','iso-8859-1').iconv(title)
             #   @item.title = title
             when 'link'
-              @item.link = e.at(i).inner_text.strip.gsub('XXX',ML_AFFL_SITE)
+              @item.link = e.at(i).inner_text.strip.gsub('XXX',ML_AFFL_SITE).gsub('&amp;','&')
             when 'image_url'
               @item.image_url = e.at(i).inner_text.strip.gsub('&amp;','&')
             when 'auct_end'
