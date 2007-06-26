@@ -14,8 +14,8 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
         xml.title       item.title
         xml.link        item.link
         xml.pubDate     CGI.rfc1123_date item.created_at
-        xml.author      'Planeta Linux Shop'
         xml.description "#{item.currency} #{item.price} (#{item.condition})"
+        xml.guid        item.link
       end
     end
   end

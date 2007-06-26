@@ -150,6 +150,8 @@ task :after_update_code do
   sudo "chown -R www-data:www-data #{release_path}"
 end
 task :after_setup do
+  sudo "touch #{deploy_to}/shared/log/fastcgi.crash.log"
+  sudo "touch #{deploy_to}/shared/log/production.log"
   sudo "chown -R www-data:www-data #{deploy_to}/shared"
 end
 
