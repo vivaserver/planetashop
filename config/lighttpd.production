@@ -1,3 +1,8 @@
+# lighttpd configuration for deployed site
+# include this file in the main /etc/lighttpd/lighttpd.conf file using:
+#
+#  inclue "/path/to/this/lighttpd.conf"
+
 $HTTP["host"] =~ "^planetalinuxshop\.com\.ar$" {
   url.redirect = (
     "^/(.*)" => "http://www.planetalinuxshop.com.ar/$1",
@@ -20,3 +25,4 @@ $HTTP["host"] =~ "(www\.)?planetalinuxshop\.com\.ar$" {
     )
   )
 }
+
