@@ -110,14 +110,14 @@ class Leecher
               fix_intro = strip_html(intros[i].to_s)
               #
               dup = target.stories.size ? target.stories.find(:first, :conditions => ["url = ?", uri]) : nil
-              if opt == 'update' || opt == 'save'
-                if dup && opt == 'save'
+              if opt == :update || opt == :save
+                if dup && opt == :save
                   # check for duplicate entries
                   puts "Duplicate entry for #{uri}, skipping."
                 else
                   # save all new entries
-                  print "Updating "  if opt == 'update'
-                  print "Inserting " if opt == 'save'
+                  print "Updating "  if opt == :update
+                  print "Inserting " if opt == :save
                   puts "#{uri} ..."
                   if body
                     if image_url

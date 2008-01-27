@@ -122,4 +122,17 @@ namespace :parse do
       File.delete("#{RAILS_ROOT}/public/cache/#{country}.html") if  File.file?("#{RAILS_ROOT}/public/cache/#{country}.html")
     end
   end
+  
+  namespace :distrowatch do
+    desc 'Leeches the Top 10 from DistroWatch.com for the first time'
+    task :save => [ :migrate ] do
+      l = Leecher.new
+      Target.find(:all).each { |t| l.leech(t,:save,10) }
+    end
+    desc 'Updates the leeched Top 10 from DistroWatch.com'
+    task :update => [ :migrate ] do
+      l = Leecher.new
+      Target.find(:all).each { |t| l.leech(t,:update,10) }
+    end
+  end
 end

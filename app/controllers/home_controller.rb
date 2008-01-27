@@ -2,9 +2,8 @@ class HomeController < ApplicationController
   caches_page :index, :rss
 
   def index
-    mercado  = Country.find_by_name(params[:country])
-    @pages, @items = paginate_collection mercado.items, :per_page => 8, :page => (params[:page] || 1)
     @distros = Story.find(:all)
+    @items   = Item.paginate_by_sql(["select i.* from items as i join countries as c on i.country_id = c.id where c.name = ?", params[:country]], :page => params[:page], :per_page => 8)
   end
   
   def rss

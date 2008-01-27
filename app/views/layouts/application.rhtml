@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!-- (c)2005,2006,2007 por Cristian R. Arroyo [cristian.arroyo(at)vivaserver.com.ar] -->
+<!-- (c)2005,2006,2007,2008 por Cristian R. Arroyo [cristian.arroyo(at)vivaserver.com.ar] -->
 <html>
   <head>
     <title>
@@ -176,7 +176,7 @@
       </div>
     </div>
     <!-- CLOSES LEVEL 1 -->
-    <center>
+    <div id="holder">
       <p>
         <script type="text/javascript"><!--
         google_ad_client = "pub-4208681256971787";
@@ -202,5 +202,4 @@
           </div>
         </div>
         <div id="content">
-          <%= @content_for_layout -%>
-
+          <%= yield %>
