@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  caches_page :index, :rss
 
   def index
     @distros = Story.find(:all)

@@ -43,6 +43,11 @@ set :deploy_to, "/var/www/#{application}" # defaults to "/u/apps/#{application}"
 # ssh_options[:keys] = %w(/path/to/my/key /path/to/another/key)
 # ssh_options[:port] = 25
 
+# following line to fix Net::SSH::HostKeyMismatch error. 
+# see http://railspikes.com/2007/5/10/capistrano-bug-net-ssh-hostkeymismatch
+# also from OS X run "sudo cap ..." to get it working
+ssh_options[:paranoid] = false
+
 # =============================================================================
 # TASKS
 # =============================================================================
