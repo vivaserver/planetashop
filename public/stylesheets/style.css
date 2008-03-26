@@ -1,6 +1,7 @@
 body {
   /* 62.5% is 10pt approx. thanks to http://clagnut.com/blog/348/ */
-  font: 62.5% Tahoma, Verdana, Helvetica;
+  font-family: Tahoma, Verdana, Helvetica;
+  font-size: 13px;
   background: #ecf0f6;
   color: #000;
 }

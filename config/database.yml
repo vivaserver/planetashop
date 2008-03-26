@@ -12,6 +12,7 @@ test:
 production:
   adapter: mysql
   database: planetashop_production
+  socket: /var/run/mysqld/mysqld.sock
   username: root
   password:
   host: localhost

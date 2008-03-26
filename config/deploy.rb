@@ -145,8 +145,15 @@ desc 'New Hpricot xML parser'
 task :parse_xml do
   run "cd #{current_path} && rake parse:xml RAILS_ENV=production"
 end
-task :clear_cache do
-  run "cd #{current_path} && rake parse:clear_cache RAILS_ENV=production"
+# DistroWatch leecher now runs as a Rake task, not as a standalone script
+desc 'New DistroWatch leech parser'
+task :parse_distrowatch do
+  run "cd #{current_path} && rake parse:distrowatch:save RAILS_ENV=production"
+end
+# DistroWatch update task, run it after :parse_distrowatch
+desc 'New DistroWatch update parser'
+task :update_distrowatch do
+  run "cd #{current_path} && rake parse:distrowatch:update RAILS_ENV=production"
 end
 
 # thanks to http://litespeedtech.com/support/wiki/doku.php?id=litespeed_wiki:capistrano
