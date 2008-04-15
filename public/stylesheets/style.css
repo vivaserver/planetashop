@@ -15,6 +15,7 @@ a:hover {
   background: #ecf0f6;
   font-size: 0.95em;
   line-height: 95%;
+  text-align: center;
   margin: 0 auto;
   width: 770px;
 }
@@ -38,7 +39,6 @@ a:hover {
   line-height: 165%;
   margin: 15px 60px 0 0;
   padding: 8px;
-  text-align: center;
   width: 330px;
 }
 
@@ -95,10 +95,9 @@ ul#mlnav li.ve {
   background: url(/images/bg_shop_item.gif) no-repeat;  
 }
 
-#adsense {
+.adsense {
   clear: both;
-  padding: 0.5em 0;
-  text-align: center;
+  padding: 1em 0 0 0;
 }
 
 #pager {
@@ -116,6 +115,7 @@ ul#mlnav li.ve {
   margin: 0;
   padding: 0;
   width: 770px;
+  text-align: left;
 }
 #footer a {
   color: #fff;
@@ -149,9 +149,6 @@ ul#mlnav li.ve {
   background: url(/images/feed.gif) no-repeat left center;
 }
 
-#distros {
-  margin: 10px 0 5px 0;
-}
 #distros dl {
   margin: 0 0 5px 0;
   background: #fff url(/images/rc_bot.gif) no-repeat bottom;
@@ -159,7 +156,6 @@ ul#mlnav li.ve {
 #distros dt {
   padding: 10px;
   font-weight: bold;
-  text-align: center;
   background: #fff url(/images/rc_top.gif) no-repeat top;
 }
 #distros dd {
