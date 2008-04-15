@@ -125,21 +125,6 @@ task :long_deploy do
   enable_web
 end
 
-# always run leechers after deploy_with_migrations
-desc "Always run leecher & parser after deploy with migrations"
-task :after_deploy_with_migrations do
-  first_time_leech
-end
-
-# runleecher, use it after the first deploy_with_migrations
-desc "Run leecher for the first time..."
-task :first_time_leech do
-  sudo "chmod 0755 #{release_path}/lib/leech"
-  sudo "#{release_path}/lib/leech --save --env=production"
-  # first migration creates log files as root user, so chmod them back to www-data user/group
-  after_setup
-end
-
 # xML parser, use it after the first deploy_with_migrations
 desc 'New Hpricot xML parser'
 task :parse_xml do
@@ -165,6 +150,12 @@ task :after_setup do
   sudo "touch #{deploy_to}/shared/log/fastcgi.crash.log"
   sudo "touch #{deploy_to}/shared/log/production.log"
   sudo "chown -R www-data:www-data #{deploy_to}/shared"
+end
+
+# custom disabled web page
+desc 'Use Planeta Linux Shop custom disabled page'
+task :disable_web do
+  sudo "cp #{current_path}/app/views/layouts/maintenance.html #{shared_path}/system/"
 end
 
 #

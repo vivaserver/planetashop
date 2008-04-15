@@ -1,64 +1,86 @@
-          <div id="mlnav">
-            <ul>
-              <li class="ar"><%= link_to_unless_current 'Argentina',     :country => 'argentina' %></li>
-              <li class="br"><%= link_to_unless_current 'Brasil',        :country => 'brasil' %></li>
-              <li class="cl"><%= link_to_unless_current 'Chile',         :country => 'chile' %></li>
-              <li class="co"><%= link_to_unless_current 'Colombia',      :country => 'colombia' %></li>
-              <li class="ec"><%= link_to_unless_current 'Ecuador',       :country => 'ecuador' %></li>
-              <li class="mx"><%= link_to_unless_current 'M&eacute;xico', :country => 'mexico' %></li>
-              <li class="pe"><%= link_to_unless_current 'Per&uacute;',   :country => 'peru' %></li>
-              <li class="uy"><%= link_to_unless_current 'Uruguay',       :country => 'uruguay' %></li>
-              <li class="ve"><%= link_to_unless_current 'Venezuela',     :country => 'venezuela' %></li>
-            </ul>
-          </div>
-          <div id="gallery">
-            <% @items.each_with_index { |i,j| %>
-              <div class="<%= cycle 'item1', 'item2', 'item3', 'item4' %>">
-                <p><b><%= "#{i.currency} #{i.price}" -%></b></p>
+    <div id="container">
+      <p>
+        <script type="text/javascript"><!--
+        google_ad_client = "pub-4208681256971787";
+        google_ad_width = 728;
+        google_ad_height = 15;
+        google_ad_format = "728x15_0ads_al_s";
+        google_ad_channel ="";
+        google_color_border = "A9BED9";
+        google_color_bg = "EAEDF4";
+        google_color_link = "006699";
+        google_color_url = "006699";
+        google_color_text = "333333";
+        //--></script>
+        <script type="text/javascript"
+          src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
+      </p>
+      <div id="header-container">
+        <div id="header">
+          <a href="<%= url_for home_url -%>"><h1>&nbsp;</h1></a>
+          <p><%= image_tag 'help.gif', :align => 'middle' %> &nbsp; <b>Planeta Linux Shop</b> es la respuesta de <a href="http://www.planetalinux.com.ar/">Planeta Linux Argentina</a> a la cl&aacute;sica pregunta <i>"&iquest;D&oacute;nde compro Linux?"</i><br>&iexcl;Elije tu pa&iacute;s y encuentra la mejor oferta!</p>
+        </div>
+      </div>
+      <div class="container">
+        <ul id="mlnav">
+          <li class="ar"><%= link_to_unless_current 'Argentina',     :country => 'argentina' %></li>
+          <li class="br"><%= link_to_unless_current 'Brasil',        :country => 'brasil' %></li>
+          <li class="cl"><%= link_to_unless_current 'Chile',         :country => 'chile' %></li>
+          <li class="co"><%= link_to_unless_current 'Colombia',      :country => 'colombia' %></li>
+          <li class="ec"><%= link_to_unless_current 'Ecuador',       :country => 'ecuador' %></li>
+          <li class="mx"><%= link_to_unless_current 'M&eacute;xico', :country => 'mexico' %></li>
+          <li class="pe"><%= link_to_unless_current 'Per&uacute;',   :country => 'peru' %></li>
+          <li class="uy"><%= link_to_unless_current 'Uruguay',       :country => 'uruguay' %></li>
+          <li class="ve"><%= link_to_unless_current 'Venezuela',     :country => 'venezuela' %></li>
+        </ul>
+        <div id="gallery">
+          <% @items.each_with_index { |i,j| %>
+            <div class="<%= cycle 'span-1', 'span-1', 'span-1', 'span-1 last' %>">
+              <p><b><%= "#{i.currency} #{i.price}" -%></b></p>
+              <a href="<%= i.link %>" title="<%= i.title %>">
+                <%= i.image_url.blank? ? (image_tag 'sin_foto.jpg', :size => '90x90') : (image_tag i.image_url, :size => '90x90') %>
+              </a>
+              <p>
                 <a href="<%= i.link %>" title="<%= i.title %>">
-                  <%= i.image_url.blank? ? (image_tag 'sin_foto.jpg', :size => '90x90') : (image_tag i.image_url, :size => '90x90') %>
+                  <%= truncate i.title.gsub('+',' '), 55 %>
                 </a>
-                <p>
-                  <a href="<%= i.link %>" title="<%= i.title %>">
-                    <%= truncate i.title.gsub('+',' '), 55 %>
-                  </a>
-                </p>
+              </p>
+            </div>
+            <% if j == 3 %>
+              <div id="adsense">
+                <script type="text/javascript"><!--
+                google_ad_client = "pub-4208681256971787";
+                google_ad_width = 728;
+                google_ad_height = 90;
+                google_ad_format = "728x90_as";
+                google_ad_type = "text_image";
+                google_ad_channel ="";
+                google_color_border = "FFFFFF";
+                google_color_bg = "FFFFFF";
+                google_color_link = "000000";
+                google_color_url = "000099";
+                google_color_text = "006699";
+                //--></script>
+                <script type="text/javascript"
+                  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
               </div>
-              <% if j == 3 %>
-                <div id="mldate">
-                  <script type="text/javascript"><!--
-                  google_ad_client = "pub-4208681256971787";
-                  google_ad_width = 728;
-                  google_ad_height = 90;
-                  google_ad_format = "728x90_as";
-                  google_ad_type = "text_image";
-                  google_ad_channel ="";
-                  google_color_border = "FFFFFF";
-                  google_color_bg = "FFFFFF";
-                  google_color_link = "000000";
-                  google_color_url = "000099";
-                  google_color_text = "006699";
-                  //--></script>
-                  <script type="text/javascript"
-                    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                  </script>
-                </div>
-              <% end %>
-            <% } %>
-          </div>
-          <div id="pager">
-            <%= will_paginate @items, :params => { 'country' => params[:country] }, :prev_label => '&laquo;', :next_label => '&raquo;' %>
-          </div>
+            <% end %>
+          <% } %>
         </div>
-        <div id="footer">
-          <ul>
-            <li><%= link_to image_tag('house.gif', :align => 'absmiddle'), home_url %> </a></li>
-            <li><%= image_tag('info.gif',  :align => 'absmiddle') %> <a href="http://www.vivaserver.com.ar/tag/planetashop">Acerca</a></li>
-            <li><%= image_tag('email.gif', :align => 'absmiddle') %> <a href="http://www.vivalinux.com.ar/contact">Contacto</a></li>
-            <li><%= image_tag('group.gif', :align => 'absmiddle') %> <a href="http://www.planetalinux.com.ar/forum/index.php">Foros</a></li>
-            <li><%= link_to image_tag('feed.gif', :align => 'absmiddle'), :action => 'rss' %></li>
-          </ul>
+        <div id="pager">
+          <%= will_paginate @items, :params => { 'country' => params[:country] }, :prev_label => '&laquo;', :next_label => '&raquo;' %>
         </div>
+      </div>
+      <div id="footer">
+        <ul>
+          <li class="home"><%= link_to 'Inicio', home_url %></li>
+          <li class="info"><%= link_to 'Acerca', 'http://www.vivaserver.com.ar/tag/planetashop' %></li>
+          <li class="mail"><%= link_to 'Contacto', 'http://www.vivalinux.com.ar/contact' %></li>
+          <li class="forum"><%= link_to 'Foros', "http://www.planetalinux.com.ar/forum/index.php" %></li>
+          <li class="feed"><%= link_to 'Feed', :action => 'rss' %></li>
+        </ul>        
       </div>
       <p>
         <script type="text/javascript"><!--
@@ -139,31 +161,15 @@
           </script>
         </p>
         <p>
-          &copy; 2006, 2007, 2008 <b>Planeta Linux Shop</b>. El shopping de recursos Linux. Web Hosting <%= image_tag 'railspower.png', :align => 'absmiddle' %> por <a href="http://www.vivaserver.com/">VivaServer</a>.
+          &copy; 2006, 2007, 2008 <b>Planeta Linux Shop</b>. El shopping de recursos Linux. <a href="http://www.vivaserver.com.ar/" class="rails">Web Hosting por VivaServer</a>.
         </p>
-        <p>
-          <a href="http://www.planetalinux.com.ar/">Planeta Linux</a>
-          &nbsp;&nbsp;
-          <a href="http://www.vivabsd.com.ar/">VivaBSD!</a>
-          &nbsp;&nbsp;
-          <a href="http://www.vivalinux.com.ar/">VivaLinux!</a>
-          &nbsp;&nbsp;
-          <a href="http://www.vivaphp.com.ar/">VivaPHP!</a>
-          &nbsp;&nbsp;
-          <a href="http://www.vivahardware.com.ar/">VivaHardware!</a>
-          &nbsp;&nbsp;
-          <a href="http://www.vivaserver.com/blog/">VivaServer Blog</a>
-        </p>
+        <ul>
+          <li><a href="http://www.planetalinux.com.ar/">Planeta Linux</a></li>
+          <li><a href="http://www.vivabsd.com.ar/">VivaBSD!</a></li>
+          <li><a href="http://www.vivalinux.com.ar/">VivaLinux!</a></li>
+          <li><a href="http://www.vivaphp.com.ar/">VivaPHP!</a></li>
+          <li><a href="http://www.vivahardware.com.ar/">VivaHardware!</a></li>
+          <li><a href="http://www.vivaserver.com/blog/">VivaServer Blog</a></li>
+        </ul>
       </div>
     </div>
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    var pageTracker = _gat._getTracker("UA-83052-10");
-    pageTracker._initData();
-    pageTracker._trackPageview();
-    </script>
-  </body>
-</html>

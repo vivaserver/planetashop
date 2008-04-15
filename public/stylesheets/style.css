@@ -1,7 +1,4 @@
 body {
-  /* 62.5% is 10pt approx. thanks to http://clagnut.com/blog/348/ */
-  font-family: Tahoma, Verdana, Helvetica;
-  font-size: 13px;
   background: #ecf0f6;
   color: #000;
 }
@@ -14,103 +11,93 @@ a:hover {
   color: #dd6900;
 }
 
-h1 {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-input, select, textarea {
-  border: 1px solid #b3bacf;
-}
-
-td {
-  font-family: Tahoma, Verdana, Helvetica;
-  text-align: left;
-}
-
 #container {
-  background: #fff;
+  background: #ecf0f6;
+  font-size: 0.95em;
+  line-height: 95%;
   margin: 0 auto;
+  width: 770px;
 }
 
 #header-container {
   height: 110px;
-  background-image: url(/images/bg_shop_head.gif);
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url(/images/bg_shop_head.gif) no-repeat center;
 }
 #header h1 {
   float: left;
   width: 245px;
   height: 110px;
-  background-image: url(/images/logo.gif);
-  background-repeat: no-repeat;
-  background-position: left;
+  background: url(/images/logo.gif) no-repeat left;
 }
 #header p {
-  float: right;
-  color: #808080;
-  width: 330px;
+  background: #FFF5D9;
   border: 2px solid #fff;
+  color: #808080;
+  float: right;
+  font-size: 0.95em;
+  line-height: 165%;
   margin: 15px 60px 0 0;
   padding: 8px;
-  background: #FFF5D9;
-  line-height: 175%;
+  text-align: center;
+  width: 330px;
 }
 
-ul#nav {
-  text-align: right;
-}
-ul#nav input {
-  color: #2c69a9;
-  background-image: url(/images/bg_shadow.png);
-  background-repeat: repeat-x;
-}
-
-ul#button li a {
-  text-decoration: none;
-  background-image: url(/images/bg_box.gif);
-  background-repeat: repeat-x;
-}
-ul#button li a:hover {
-  color: #fff;
-  background-image: url(/images/bg_box2.gif);
-  background-repeat: repeat-x;
-}
-
-#content {
-}
-
-#navigator {
+ul#mlnav {
+  clear: both;
   text-align: center;
 }
-#navigator li {
+ul#mlnav li {
   display: inline;
-  margin: 0 1em;
+  padding: 0 1em;
+  padding-left: 20px;
+}
+ul#mlnav li.ar {
+  background: url(/images/ar.gif) no-repeat left bottom;
+}
+ul#mlnav li.br {
+  background: url(/images/br.gif) no-repeat left bottom;
+}
+ul#mlnav li.cl {
+  background: url(/images/cl.gif) no-repeat left bottom;
+}
+ul#mlnav li.co {
+  background: url(/images/co.gif) no-repeat left bottom;
+}
+ul#mlnav li.ec {
+  background: url(/images/ec.gif) no-repeat left bottom;
+}
+ul#mlnav li.mx {
+  background: url(/images/mx.gif) no-repeat left bottom;
+}
+ul#mlnav li.pe {
+  background: url(/images/pe.gif) no-repeat left bottom;
+}
+ul#mlnav li.uy {
+  background: url(/images/uy.gif) no-repeat left bottom;
+}
+ul#mlnav li.ve {
+  background: url(/images/ve.gif) no-repeat left bottom;
 }
 
-
-#box {
-  background-color: #EAEDF4;
-  background-image: url(/images/bg_box.gif);
-  background-repeat: repeat-x;
+.container {
+  background: #fff;
 }
-
-#article {
-  background: url(/images/bg_article.gif) no-repeat 0 0;
+#gallery {
+  margin-left: 5px;
 }
-#article img {
-  margin-right: 5px;
+#gallery p {
+  padding-top: 0.5em;
 }
-#article p {
-  clear: left;
+#gallery .span-1 {
+  width: 175px;
+  height: 161px;
   text-align: center;
-  font-weight: bolder;
+  background: url(/images/bg_shop_item.gif) no-repeat;  
 }
 
-
-#message {
-  border: 1px dotted #006699;
+#adsense {
+  clear: both;
+  padding: 0.5em 0;
   text-align: center;
 }
 
@@ -122,14 +109,14 @@ ul#button li a:hover {
 }
 
 #footer {
+  background: url(/images/bg_shop_foot.gif) no-repeat center;
+  clear: both;
   color: #fff;
   height: 38px;
-  text-align: left;
-  background-image: url(/images/bg_shop_foot.gif);
-  background-repeat: no-repeat;
-  background-position: center;
+  margin: 0;
+  padding: 0;
+  width: 770px;
 }
-
 #footer a {
   color: #fff;
   font-weight: bold;
@@ -139,16 +126,67 @@ ul#button li a:hover {
   text-decoration: underline;
 }
 #footer ul {
-  padding-top: 12px;
-  padding-left: 10px;
+  padding-top: 10px;
 }
 #footer li {
-  margin: 0 1em;
+  display: inline;
+  padding: 0 1em;
+  padding-left: 20px;
+}
+#footer li.home {
+  background: url(/images/house.gif) no-repeat left center;
+}
+#footer li.info {
+  background: url(/images/info.gif) no-repeat left center;
+}
+#footer li.mail {
+  background: url(/images/email.gif) no-repeat left center;
+}
+#footer li.forum {
+  background: url(/images/group.gif) no-repeat left center;
+}
+#footer li.feed {
+  background: url(/images/feed.gif) no-repeat left center;
+}
+
+#distros {
+  margin: 10px 0 5px 0;
+}
+#distros dl {
+  margin: 0 0 5px 0;
+  background: #fff url(/images/rc_bot.gif) no-repeat bottom;
+}
+#distros dt {
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  background: #fff url(/images/rc_top.gif) no-repeat top;
+}
+#distros dd {
+  padding: 10px 0;
+}
+#distros img {
+  float: left;
+}
+#distros table {
+  padding-left: 120px;
+}
+#distros td {
+  padding: 2px;
 }
 
 #credits {
-  clear: both;
+  text-align: center;
 }
-#credits ul {
-  margin: 5px 0;
+#credits p {
+  margin: 0.5em 0;
+}
+#credits li {
+  display: inline;
+  padding-left: 20px;
+}
+
+.rails {
+  background: url(/images/railspower.png) no-repeat left center;
+  padding-left: 85px;
 }

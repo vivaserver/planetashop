@@ -27,10 +27,10 @@
     <link rel="alternate" href="http://www.planetalinuxshop.com.ar/peru/rss"      type="application/rss+xml" title="Planeta Linux Shop PERU">
     <link rel="alternate" href="http://www.planetalinuxshop.com.ar/uruguay/rss"   type="application/rss+xml" title="Planeta Linux Shop URUGUAY">
     <link rel="alternate" href="http://www.planetalinuxshop.com.ar/venezuela/rss" type="application/rss+xml" title="Planeta Linux Shop VENEZUELA">
-    <%= stylesheet_link_tag 'layout' %>
+    <%= stylesheet_link_tag 'screen', :media => 'screen, projection' %>
+    <%= stylesheet_link_tag 'print', :media => 'print' %>
+    <!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
     <%= stylesheet_link_tag 'style' %>
-    <%= stylesheet_auto_link_tags %>
-    <%= javascript_include_tag 'sitewide.js' %>
     <script language="javascript" type="text/javascript">
       <!--
       if (top != self) top.location=self.location;
@@ -176,30 +176,15 @@
       </div>
     </div>
     <!-- CLOSES LEVEL 1 -->
-    <div id="holder">
-      <p>
-        <script type="text/javascript"><!--
-        google_ad_client = "pub-4208681256971787";
-        google_ad_width = 728;
-        google_ad_height = 15;
-        google_ad_format = "728x15_0ads_al_s";
-        google_ad_channel ="";
-        google_color_border = "A9BED9";
-        google_color_bg = "EAEDF4";
-        google_color_link = "006699";
-        google_color_url = "006699";
-        google_color_text = "333333";
-        //--></script>
-        <script type="text/javascript"
-          src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script>
-      </p>
-      <div id="container">
-        <div id="header-container">
-          <div id="header">
-            <a href="<%= url_for home_url -%>"><h1>&nbsp;</h1></a>
-            <p><%= image_tag 'help.gif', :align => 'middle' %> &nbsp; <b>Planeta Linux Shop</b> es la respuesta de <a href="http://www.planetalinux.com.ar/">Planeta Linux Argentina</a> a la cl&aacute;sica pregunta <i>"&iquest;D&oacute;nde compro Linux?"</i><br>&iexcl;Elije tu pa&iacute;s y encuentra la mejor oferta!</p>
-          </div>
-        </div>
-        <div id="content">
-          <%= yield %>
+    <%= yield %>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-83052-10");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+    </script>
+  </body>
+</html>
