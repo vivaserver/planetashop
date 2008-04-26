@@ -5,10 +5,10 @@
 xml.instruct! :xml, :encoding => 'iso-8859-1'
 xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
   xml.channel do
-    xml.title       "Planeta Linux Shop #{@mercado.title.upcase}"
+    xml.title       "Planeta Linux Shop #{params[:country].upcase}"
     xml.link        url_for :controller => 'home', :country => params[:country], :only_path => false
     xml.pubDate     CGI.rfc1123_date @items.first.created_at if @items.any?
-    xml.description "Planeta Linux Shop: #{@mercado.title.upcase}"
+    xml.description "Planeta Linux Shop: #{params[:country].upcase}"
     @items.each do |item|
       xml.item do
         xml.title       item.title

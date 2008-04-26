@@ -23,6 +23,7 @@ a:hover {
 #header-container {
   height: 110px;
   background: url(/images/bg_shop_head.gif) no-repeat center;
+  margin-top: -1em;
 }
 #header h1 {
   float: left;
@@ -97,7 +98,7 @@ ul#mlnav li.ve {
 
 .adsense {
   clear: both;
-  padding: 1em 0 0 0;
+  padding: 0.25em 0;
 }
 
 #pager {
@@ -149,6 +150,9 @@ ul#mlnav li.ve {
   background: url(/images/feed.gif) no-repeat left center;
 }
 
+#distros {
+  margin-top: -1em;
+}
 #distros dl {
   margin: 0 0 5px 0;
   background: #fff url(/images/rc_bot.gif) no-repeat bottom;
@@ -173,6 +177,7 @@ ul#mlnav li.ve {
 
 #credits {
   text-align: center;
+  margin-top: -1em;
 }
 #credits p {
   margin: 0.5em 0;
