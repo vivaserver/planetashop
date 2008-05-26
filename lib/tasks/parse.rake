@@ -10,7 +10,7 @@ ML_SEARCH_WORD = 'linux'
 
 namespace :parse do
   desc 'xML parsing with Hpricot'
-  task :xml => [ :migrate ] do
+  task :xml => :environment do
     Country.find(:all).each do |country|
       puts "parsing #{country.title}"
       xml   = Hpricot.XML(open("#{country.url_base}jm/searchXml?as_categ_id=#{ML_CATEG}&user=#{ML_USER}&pwd=#{ML_PASS}"))
@@ -125,12 +125,12 @@ namespace :parse do
   
   namespace :distrowatch do
     desc 'Leeches the Top 10 from DistroWatch.com for the first time'
-    task :save => [ :migrate ] do
+    task :save => :environment do
       l = Leecher.new
       Target.find(:all).each { |t| l.leech(t,:save,10) }
     end
     desc 'Updates the leeched Top 10 from DistroWatch.com'
-    task :update => [ :migrate ] do
+    task :update => :environment do
       l = Leecher.new
       Target.find(:all).each { |t| l.leech(t,:update,10) }
     end
