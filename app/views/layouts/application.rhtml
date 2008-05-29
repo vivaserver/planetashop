@@ -29,8 +29,8 @@
     <link rel="alternate" href="http://www.planetalinuxshop.com.ar/venezuela/rss" type="application/rss+xml" title="Planeta Linux Shop VENEZUELA">
     <%= stylesheet_link_tag 'screen', :media => 'screen, projection' %>
     <%= stylesheet_link_tag 'print', :media => 'print' %>
-    <!--[if IE]><link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
-    <%= stylesheet_link_tag 'style' %>
+    <!--[if IE]><%= stylesheet_link_tag 'ie', :media => 'screen, projection' %><![endif]-->
+    <%= stylesheet_link_tag 'style', :media => 'screen, projection' %>
     <script language="javascript" type="text/javascript">
       <!--
       if (top != self) top.location=self.location;

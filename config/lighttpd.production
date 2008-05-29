@@ -3,13 +3,20 @@
 #
 #  inclue "/path/to/this/lighttpd.conf"
 
+# handles both .com and .com.ar domains
+$HTTP["host"] =~ "^planetalinuxshop\.com$" {
+  url.redirect = (
+    "^/(.*)" => "http://www.planetalinuxshop.com/$1",
+    "" => "http://www.planetalinuxshop.com/"
+  )
+}
 $HTTP["host"] =~ "^planetalinuxshop\.com\.ar$" {
   url.redirect = (
     "^/(.*)" => "http://www.planetalinuxshop.com.ar/$1",
     "" => "http://www.planetalinuxshop.com.ar/"
   )
 }
-$HTTP["host"] =~ "(www\.)?planetalinuxshop\.com\.ar$" {
+$HTTP["host"] =~ "(www\.)?planetalinuxshop\.com" {
   server.document-root = "/var/www/planetashop/current/public"
   url.rewrite = ( "^/$" => "cache/index.html", "^([^.]+)$" => "cache/$1.html" )
   server.error-handler-404 = "/dispatch.fcgi"

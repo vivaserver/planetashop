@@ -96,7 +96,7 @@ namespace :parse do
   end
   
   desc 'clears the cache files by country name'
-  task :clear_cache => [ :migrate ] do
+  task :clear_cache => :environment do
     unless ENV.include?('country')
       puts "clearing all countries cache"
       Country.find(:all).each { |country| clear_country_cache(country.name) }
