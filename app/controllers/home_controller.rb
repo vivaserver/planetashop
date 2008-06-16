@@ -12,4 +12,9 @@ class HomeController < ApplicationController
     @items = Item.available(params[:country])
     render :layout => false
   end
+  
+  def unrecognized
+    # NOTE: catch-all unrecognized URLs, removed default last routing rule (see routes.rb)
+    render :file => "#{RAILS_ROOT}/public/404.html", :status => 404
+  end
 end

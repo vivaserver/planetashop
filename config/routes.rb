@@ -16,7 +16,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect ':country/:page', :controller => 'home', :country => nil, :page => nil, :requirements => {:country => /(argentina|brasil|chile|colombia|ecuador|mexico|peru|venezuela|uruguay)/, :page => /\d{1,2}/}
   map.connect ':country/rss', :controller => 'home', :action => 'rss', :requirements => {:country => /(argentina|brasil|chile|colombia|ecuador|mexico|peru|venezuela|uruguay)/}
+  
+  map.connect '*path', :controller => 'home', :action => 'unrecognized'
 
   # Install the default route as the lowest priority.
-  map.connect ':controller/:action/:id'
+  # map.connect ':controller/:action/:id'
 end
