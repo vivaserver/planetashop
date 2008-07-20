@@ -11,7 +11,7 @@
 # form the root of the application path.
 
 set :application, "planetashop"
-set :repository, "svn+ssh://69.61.74.106/home/repos/#{application}/trunk"
+set :repository, "svn+ssh://69.61.74.106/home/repos/#{application}/branches/RB-1.2.6"
 
 # =============================================================================
 # ROLES
